@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.MainActivity">
+
+    <LinearLayout
+
+        android:layout_width = "match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="INTROBE"
+
+            android:textColor="#0000FF"
+            android:layout_weight="2"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="ID                   : "
+
+                />
+
+            <EditText
+                android:id="@+id/idbar"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:maxLines="1"
+                android:gravity="center"
+                android:hint="enter ID !"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:text="PASSWORD : "/>
+
+
+            <EditText
+                android:id="@+id/passwordbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:hint="enter password!"
+                />
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Login"
+            android:layout_weight="0.1"
+            />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:layout_weight="0.1"
+            >
+
+            <Button
+                android:id="@+id/googleloginbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="google login"
+                android:layout_weight="1"
+
+                />
+            <Button
+                android:id="@+id/facebookloginbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="facebook login"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:id="@+id/naverloginbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="naver login"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btnmakeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="회원가입"
+
+                android:layout_weight="3"
+
+
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="forget password?"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

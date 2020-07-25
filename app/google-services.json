@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "280608505320",
+    "firebase_url": "https://intube-9d76a.firebaseio.com",
+    "project_id": "intube-9d76a",
+    "storage_bucket": "intube-9d76a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280608505320:android:a50f7021331cd9c78b785d",
+        "android_client_info": {
+          "package_name": "com.Introbe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280608505320-4124lqevvm59msasm6k7r7o8itftjp4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd4VD5Su0WuNysnrJkEEFdOw9kieSgPJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280608505320-4124lqevvm59msasm6k7r7o8itftjp4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
