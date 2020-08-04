@@ -73,6 +73,9 @@ class MainActivity : AppCompatActivity(), Logininterface {
 
 
             if (result != null) {
+
+                //test
+
                 if(result.isSuccess) {
                     var account = result.signInAccount
                     //second
