@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
         }
 
         googleloginbtn.setOnClickListener{
+
            googleLogin()
             //구글 로그인
         }
@@ -54,14 +55,22 @@ class MainActivity : AppCompatActivity(), Logininterface {
 
     fun googleLogin() {
         var signInIntent = googleSignInID?.signInIntent
+
         startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+
+
         if(requestCode == GOOGLE_LOGIN_CODE)
         {
+
+
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+
+
 
             if (result != null) {
                 if(result.isSuccess) {
@@ -71,7 +80,15 @@ class MainActivity : AppCompatActivity(), Logininterface {
                     firebaseAuthWithGoogle(account!!)
 
                 }
+
             }
+            else
+            {
+
+            }
+        }
+        else
+        {
 
         }
     }
