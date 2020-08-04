@@ -70,9 +70,9 @@ class loginpopup : AppCompatActivity() , Logininterface {
     {
         user?.let{
 
-            startActivity(Intent(this, ExampleActivity::class.java))
+            //startActivity(Intent(this, ExampleActivity::class.java))
             //호출 another
-
+            finish()
         }
     }
 

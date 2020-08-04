@@ -28,10 +28,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
     
     var GOOGLE_LOGIN_CODE = 9001
     
-    fun googleLogin() {
-        var signInIntent = googleSignInID?.signInIntent
-        startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE)
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +50,11 @@ class MainActivity : AppCompatActivity(), Logininterface {
            googleLogin()
             //구글 로그인
         }
+    }
+
+    fun googleLogin() {
+        var signInIntent = googleSignInID?.signInIntent
+        startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -125,7 +127,6 @@ class MainActivity : AppCompatActivity(), Logininterface {
 
             startActivity(Intent(this, ExampleActivity::class.java))
             //호출 another
-
         }
     }
 
