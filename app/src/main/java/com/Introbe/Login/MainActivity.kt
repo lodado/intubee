@@ -116,10 +116,6 @@ class MainActivity : AppCompatActivity(), Logininterface {
         }
     }
 
-
-
-
-
     fun signinEmail()
     {
         auth?.signInWithEmailAndPassword(idbar.text.toString(),
@@ -144,7 +140,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
     override fun SuccessLogin(user : FirebaseUser?)
     {
         user?.let{
-
+            
             startActivity(Intent(this, ExampleActivity::class.java))
             //호출 another
         }
