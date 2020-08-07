@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.Introbe.IntuDatabase.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,18 +22,19 @@ public class ExampleActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();// User is signed in
+
+            String myName = user.getDisplayName();
+            String myEmail = user.getEmail();
+            // Uri photoUrl = user.getPhotoUrl();// User is signed in
+
+            //User's data
+            DataBaseUser mine = MyID.getInstance(myName, myEmail);
+
         } else {
-            Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop application", Toast.LENGTH_SHORT);
+            Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop running application", Toast.LENGTH_SHORT);
             myToast.show();
 
             finish();
         }
-
-
-
-
     }
-        }
+}
