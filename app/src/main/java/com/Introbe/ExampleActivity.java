@@ -1,15 +1,10 @@
 package com.Introbe;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.Introbe.IntuDatabase.*;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

@@ -3,6 +3,7 @@ package com.Introbe.Login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import com.Introbe.ExampleActivity
 import com.Introbe.R
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.loginpopup.*
 
 class MainActivity : AppCompatActivity(), Logininterface {
 
@@ -70,12 +72,8 @@ class MainActivity : AppCompatActivity(), Logininterface {
 
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
 
-
-
-            if (result != null) {
-
+            result?.let {
                 //test
-
                 if(result.isSuccess) {
                     var account = result.signInAccount
                     //second
@@ -83,16 +81,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
                     firebaseAuthWithGoogle(account!!)
 
                 }
-
             }
-            else
-            {
-
-            }
-        }
-        else
-        {
-
         }
     }
 
@@ -116,12 +105,31 @@ class MainActivity : AppCompatActivity(), Logininterface {
         }
     }
 
+
+
     fun signinEmail()
     {
+        val getMap  : Map<EditText, String> =
+            mapOf(idbar to "ID", passwordbar to "Password")
+
+        for ((key, value) in getMap ){
+
+            val newstr : String =  value+"를 입력하세요"
+
+            if(!toastText(key,Toast.makeText(
+                    this,
+                    newstr,
+                    newstr.length
+                ))
+            )
+                return
+        }
+
         auth?.signInWithEmailAndPassword(idbar.text.toString(),
-            passwordbar.text.toString()
+            passwordbar.text.toString().trim()
         )?.addOnCompleteListener {
                 task->
+
             if(task.isSuccessful)
             {
                 SuccessLogin(task.result?.user)//creating user
