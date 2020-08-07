@@ -1,16 +1,13 @@
 package com.Introbe.Login
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
-import com.Introbe.ExampleActivity
 import com.Introbe.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.loginpopup.*
-import java.lang.Exception
 
 class loginpopup : AppCompatActivity(), Logininterface {
 

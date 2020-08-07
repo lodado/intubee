@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ExampleActivity"
+    tools:context=".mainpage.MainActi"
     >
 
     <FrameLayout
@@ -24,6 +24,6 @@
         android:background="@color/cardview_dark_background"
         app:itemBackground="@color/cardview_dark_background"
 
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/main_navi" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

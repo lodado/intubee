@@ -2,22 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/tab1"
+        android:id="@+id/frag1"
         android:checked="true"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="리스트"
         app:showAsAction="always" />
     <item
-        android:id="@+id/tab2"
+        android:id="@+id/frag2"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="기록"
         app:showAsAction="always" />
     <item
-        android:id="@+id/tab3"
+        android:id="@+id/frag3"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="더보기"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/frag4"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="ㅇㅇ"
         app:showAsAction="always" />
 </menu>

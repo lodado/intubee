@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Login.loginpopup"></activity>
-        <activity android:name=".ExampleActivity" />
+        <activity android:name=".mainpage.MainActi" />
         <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

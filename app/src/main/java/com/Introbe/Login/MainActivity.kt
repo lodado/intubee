@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
-import com.Introbe.ExampleActivity
+import com.Introbe.mainpage.MainActi
 import com.Introbe.R
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.loginpopup.*
 
 class MainActivity : AppCompatActivity(), Logininterface {
 
@@ -149,7 +148,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
     {
         user?.let{
             
-            startActivity(Intent(this, ExampleActivity::class.java))
+            startActivity(Intent(this, MainActi::class.java))
             //호출 another
         }
     }
