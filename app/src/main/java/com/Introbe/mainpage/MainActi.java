@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.Introbe.IntuDatabase.*;
@@ -31,7 +33,7 @@ public class MainActi extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-
+            
             String myName = user.getDisplayName();
             String myEmail = user.getEmail();
             // Uri photoUrl = user.getPhotoUrl();// User is signed in
@@ -79,4 +81,29 @@ public class MainActi extends AppCompatActivity {
             return true;
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_top, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_btn1:
+                return true;
+            case R.id.action_btn2:
+                //stopBtn();
+                return true;
+            case R.id.action_btn3:
+                startActivity( new Intent(getApplicationContext(), UserPage.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

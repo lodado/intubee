@@ -1,12 +1,12 @@
 package com.Introbe.Login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
-import com.Introbe.mainpage.MainActi
+import androidx.appcompat.app.AppCompatActivity
 import com.Introbe.R
+import com.Introbe.mainpage.MainActi
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -15,7 +15,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), Logininterface {
 
@@ -47,8 +49,15 @@ class MainActivity : AppCompatActivity(), Logininterface {
             //회원가입
         }
 
-        googleloginbtn.setOnClickListener{
+        forgetpasswd.setOnClickListener{
+            Toast.makeText(this,
+                "Email me ycp998@naver.com",
+                Toast.LENGTH_LONG
+            ).show()
+        }
 
+
+        googleloginbtn.setOnClickListener{
            googleLogin()
             //구글 로그인
         }
@@ -142,12 +151,17 @@ class MainActivity : AppCompatActivity(), Logininterface {
             }
         }
 
+
+
+
     }
 
     override fun SuccessLogin(user : FirebaseUser?)
     {
         user?.let{
-            
+
+
+
             startActivity(Intent(this, MainActi::class.java))
             //호출 another
         }

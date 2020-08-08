@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login.loginpopup"></activity>
+        <activity android:name=".IntuDatabase.UserPage"></activity>
+        <activity android:name=".Login.loginpopup" />
         <activity android:name=".mainpage.MainActi" />
         <activity android:name=".Login.MainActivity">
             <intent-filter>

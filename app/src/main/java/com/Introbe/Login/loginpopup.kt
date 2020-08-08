@@ -1,13 +1,17 @@
 package com.Introbe.Login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.Introbe.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.loginpopup.*
+
 
 class loginpopup : AppCompatActivity(), Logininterface {
 
@@ -24,22 +28,27 @@ class loginpopup : AppCompatActivity(), Logininterface {
 
     }
 
-
-
     fun signUp() {
 
-        val getMap  : Map<EditText, String> =
-            mapOf(editid to "ID", editemail to "Email", editpass to "Password", editrepass to "re-Password")
+        val getMap: Map<EditText, String> =
+            mapOf(
+                editid to "ID",
+                editemail to "Email",
+                editpass to "Password",
+                editrepass to "re-Password"
+            )
 
-        for ((key, value) in getMap ){
+        for ((key, value) in getMap) {
 
-            val newstr : String =  value+"를 입력하세요"
+            val newstr: String = value + "를 입력하세요"
 
-            if(!toastText(key,Toast.makeText(
-                    this,
-                    newstr,
-                    newstr.length
-                ))
+            if (!toastText(
+                    key, Toast.makeText(
+                        this,
+                        newstr,
+                        newstr.length
+                    )
+                )
             )
                 return
         }
@@ -61,6 +70,8 @@ class loginpopup : AppCompatActivity(), Logininterface {
             editpass.text.toString()
         )?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
+
+
                 SuccessLogin(task.result?.user)
                 //creating user
             } else if (!task.exception?.message.isNullOrEmpty()) {
@@ -75,16 +86,40 @@ class loginpopup : AppCompatActivity(), Logininterface {
             }
         }
 
+
     }
 
 
     override fun SuccessLogin(user: FirebaseUser?) {
         user?.let {
 
-            //startActivity(Intent(this, ExampleActivity::class.java))
-            //호출 another
+            val profileUpdates = UserProfileChangeRequest.Builder()
+                .setDisplayName(editid.text.toString())
+                .build()
+
+            user.updateProfile(profileUpdates)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+
+                    }
+                }
+
+            Toast.makeText(
+                this,
+                "아이디가 성공적으로 생성 되었습니다.",
+                Toast.LENGTH_LONG
+            ).show()
+
+            //val database = FirebaseDatabase.getInstance()
+            //val userRef = database.getReference()
+
+            //userRef.child("users").child("email").setValue(editemail.text.toString())
+            //userRef.child("users").child("email").setValue(editid.text.toString())
+
             finish()
+            }
         }
+
+
     }
 
-}
