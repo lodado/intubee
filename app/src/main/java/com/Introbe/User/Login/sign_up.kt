@@ -1,21 +1,22 @@
-package com.Introbe.Login
+package com.Introbe.User.Login
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.Introbe.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.loginpopup.*
 
+/*
+회원가입 화면
+작성자 이충헌
+20200809
+*/
+class sign_up : Logininterface() {
 
-class loginpopup : AppCompatActivity(), Logininterface {
-
-    var auth: FirebaseAuth? = null
+    private var auth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,30 +31,18 @@ class loginpopup : AppCompatActivity(), Logininterface {
 
     fun signUp() {
 
-        val getMap: Map<EditText, String> =
-            mapOf(
-                editid to "ID",
-                editemail to "Email",
-                editpass to "Password",
-                editrepass to "re-Password"
-            )
+        val myid: String? = toastText(editid)
+        val myemail: String? = toastText(editemail)
+        val pass1: String? = toastText(editpass)
+        val pass2: String? = toastText(editrepass)
 
-        for ((key, value) in getMap) {
+        //check null
+        myid?.let{} ?: return
+        myemail?.let {} ?: return
+        pass1?.let {} ?: return
+        pass2?.let {} ?: return
 
-            val newstr: String = value + "를 입력하세요"
-
-            if (!toastText(
-                    key, Toast.makeText(
-                        this,
-                        newstr,
-                        newstr.length
-                    )
-                )
-            )
-                return
-        }
-
-        if (!editpass.text?.toString().equals(editrepass.text.toString())) {
+        if (pass1 != pass2) {
 
             val newtext: String = "비밀번호가 틀립니다"
             Toast.makeText(
@@ -66,13 +55,11 @@ class loginpopup : AppCompatActivity(), Logininterface {
         }
 
         auth?.createUserWithEmailAndPassword(
-            editemail.text.toString(),
-            editpass.text.toString()
+            myemail,
+            pass1
         )?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-
-
-                SuccessLogin(task.result?.user)
+                successActive(task.result?.user)
                 //creating user
             } else if (!task.exception?.message.isNullOrEmpty()) {
                 Toast.makeText(
@@ -89,10 +76,11 @@ class loginpopup : AppCompatActivity(), Logininterface {
 
     }
 
+    @Override
+    override fun successActive(user: FirebaseUser?) {
 
-    override fun SuccessLogin(user: FirebaseUser?) {
         user?.let {
-
+            //아이디 업데이트
             val profileUpdates = UserProfileChangeRequest.Builder()
                 .setDisplayName(editid.text.toString())
                 .build()
@@ -100,7 +88,6 @@ class loginpopup : AppCompatActivity(), Logininterface {
             user.updateProfile(profileUpdates)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-
                     }
                 }
 
@@ -110,16 +97,10 @@ class loginpopup : AppCompatActivity(), Logininterface {
                 Toast.LENGTH_LONG
             ).show()
 
-            //val database = FirebaseDatabase.getInstance()
-            //val userRef = database.getReference()
-
-            //userRef.child("users").child("email").setValue(editemail.text.toString())
-            //userRef.child("users").child("email").setValue(editid.text.toString())
-
             finish()
-            }
         }
-
-
     }
+
+
+}
 

@@ -1,10 +1,9 @@
-package com.Introbe.Login
+package com.Introbe.User.Login
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.Introbe.IntuDatabase.DataBaseManager
 import com.Introbe.R
 import com.Introbe.mainpage.MainActi
 import com.google.android.gms.auth.api.Auth
@@ -15,11 +14,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : AppCompatActivity(), Logininterface {
+/*
+로그인 화면
+작성자 이충헌
+20200809
+*/
+class sign_in : Logininterface() {
 
     var auth: FirebaseAuth? = null
     var googleSignInID : GoogleSignInClient?= null
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
         .requestIdToken("280608505320-4124lqevvm59msasm6k7r7o8itftjp4t.apps.googleusercontent.com")
         .requestEmail()
         .build()
-    
+
     var GOOGLE_LOGIN_CODE = 9001
     
 
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
         googleSignInID = GoogleSignIn.getClient(this, gso)
 
         btnmakeID.setOnClickListener{
-            startActivity(Intent(this, loginpopup::class.java))
+            startActivity(Intent(this, sign_up::class.java))
             //회원가입
         }
 
@@ -101,7 +103,7 @@ class MainActivity : AppCompatActivity(), Logininterface {
                 task->
             if(task.isSuccessful)
             {
-                SuccessLogin(task.result?.user)//creating user
+                successActive(task.result?.user)//creating user
             }
             else {
                 Toast.makeText(this,
@@ -117,30 +119,23 @@ class MainActivity : AppCompatActivity(), Logininterface {
 
     fun signinEmail()
     {
-        val getMap  : Map<EditText, String> =
-            mapOf(idbar to "ID", passwordbar to "Password")
 
-        for ((key, value) in getMap ){
+        val id  : String? = toastText(idbar)
+        val pass: String? = toastText(passwordbar)
 
-            val newstr : String =  value+"를 입력하세요"
+        id?.let{}   ?: return
+        pass?.let{} ?: return
+        //널체크
 
-            if(!toastText(key,Toast.makeText(
-                    this,
-                    newstr,
-                    newstr.length
-                ))
-            )
-                return
-        }
-
-        auth?.signInWithEmailAndPassword(idbar.text.toString(),
-            passwordbar.text.toString().trim()
+        auth?.signInWithEmailAndPassword(
+            id,
+            pass
         )?.addOnCompleteListener {
                 task->
 
             if(task.isSuccessful)
             {
-                SuccessLogin(task.result?.user)//creating user
+                successActive(task.result?.user)//creating user
             }
             else {
                 Toast.makeText(this,
@@ -150,23 +145,19 @@ class MainActivity : AppCompatActivity(), Logininterface {
                 //show Error
             }
         }
-
-
-
-
     }
 
-    override fun SuccessLogin(user : FirebaseUser?)
+    @Override
+    override fun successActive(user : FirebaseUser?)
     {
         user?.let{
 
-
+            DataBaseManager().userRecord(user)
 
             startActivity(Intent(this, MainActi::class.java))
-            //호출 another
+                //호출 another
+            }
         }
     }
 
 
-
-}

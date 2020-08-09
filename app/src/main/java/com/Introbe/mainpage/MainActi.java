@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.Introbe.IntuDatabase.*;
 import com.Introbe.R;
+import com.Introbe.User.UserPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,30 +22,24 @@ public class MainActi extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
-    private frag1 frag_1 = new frag1();
-    private frag2 frag_2 = new frag2();
-    private frag3 frag_3 = new frag3();
-    private frag4 frag_4 = new frag4();
+    private Fragment frag_1, frag_2, frag_3, frag_4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        frag_1 = new frag1();
+        frag_2 = new frag2();
+        frag_3 = new frag3();
+        frag_4 = new frag4();
+
         setContentView(R.layout.example);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            
-            String myName = user.getDisplayName();
-            String myEmail = user.getEmail();
-            // Uri photoUrl = user.getPhotoUrl();// User is signed in
-
-            //User's data
-            DataBaseUser mine = MyID.getInstance(myName, myEmail);
-
+            DataBaseUser mine = MyID.getInstance(user);
         } else {
             Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop running application", Toast.LENGTH_SHORT);
             myToast.show();
-
             finish();
         }
 
