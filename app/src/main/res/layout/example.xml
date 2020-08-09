@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".mainpage.MainActi"
+    tools:context=".mainpage.mainActivity"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >

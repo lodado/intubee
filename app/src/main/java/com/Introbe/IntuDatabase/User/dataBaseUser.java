@@ -1,5 +1,6 @@
-package com.Introbe.IntuDatabase;
+package com.Introbe.IntuDatabase.User;
 
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -12,19 +13,20 @@ import java.util.Map;
 작성자 이충헌
 20200809
 */
-public abstract class DataBaseUser {
+public abstract class dataBaseUser {
 
     private String name;
     private String email;
+    private Uri myUri;
 
     //constructor
-    public DataBaseUser(FirebaseUser user)
+    public dataBaseUser(FirebaseUser user)
     {
         //null double check 권장
         if(user != null) {
             this.name = user.getDisplayName();
             this.email = user.getEmail();
-            // Uri photoUrl = user.getPhotoUrl();// User is signed in
+            this.myUri = user.getPhotoUrl();
             //User's data
         }
         else
@@ -53,17 +55,19 @@ public abstract class DataBaseUser {
         return email;
     }
 
-    //return name,email
-    public Map<String, String> toMap() {
-        HashMap<String, String> result = new HashMap<>();
-        result.put("name", name);
-        result.put("email", email);
-        return result;
+    public void setUri(Uri newUri) { this.myUri = newUri; }
+
+    public Uri getMyUri()
+    {
+        return myUri;
     }
 
-
-
-
-
-
+    //return name,email
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("email", email);
+        result.put("Uri", myUri);
+        return result;
+    }
 }

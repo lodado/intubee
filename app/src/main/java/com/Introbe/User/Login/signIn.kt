@@ -3,9 +3,9 @@ package com.Introbe.User.Login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.Introbe.IntuDatabase.DataBaseManager
+import com.Introbe.IntuDatabase.dataBaseManager
 import com.Introbe.R
-import com.Introbe.mainpage.MainActi
+import com.Introbe.mainpage.mainActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 작성자 이충헌
 20200809
 */
-class sign_in : Logininterface() {
+class signIn : loginInterFace() {
 
     var auth: FirebaseAuth? = null
     var googleSignInID : GoogleSignInClient?= null
@@ -41,13 +41,13 @@ class sign_in : Logininterface() {
 
         auth = FirebaseAuth.getInstance()
         btnlogin.setOnClickListener {
-            signinEmail()
+            signInEmail()
         }
 
         googleSignInID = GoogleSignIn.getClient(this, gso)
 
         btnmakeID.setOnClickListener{
-            startActivity(Intent(this, sign_up::class.java))
+            startActivity(Intent(this, signUp::class.java))
             //회원가입
         }
 
@@ -117,7 +117,7 @@ class sign_in : Logininterface() {
 
 
 
-    fun signinEmail()
+    fun signInEmail()
     {
 
         val id  : String? = toastText(idbar)
@@ -151,10 +151,9 @@ class sign_in : Logininterface() {
     override fun successActive(user : FirebaseUser?)
     {
         user?.let{
+            dataBaseManager().write("users",user)
 
-            DataBaseManager().userRecord(user)
-
-            startActivity(Intent(this, MainActi::class.java))
+            startActivity(Intent(this, mainActivity::class.java))
                 //호출 another
             }
         }

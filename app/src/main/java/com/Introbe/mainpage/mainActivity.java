@@ -11,14 +11,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import com.Introbe.IntuDatabase.*;
+
+import com.Introbe.IntuDatabase.User.dataBaseUser;
+import com.Introbe.IntuDatabase.User.myID;
 import com.Introbe.R;
-import com.Introbe.User.UserPage;
+import com.Introbe.User.userPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActi extends AppCompatActivity {
+public class mainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -36,7 +38,7 @@ public class MainActi extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            DataBaseUser mine = MyID.getInstance(user);
+            dataBaseUser mine = myID.getInstance(user);
         } else {
             Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop running application", Toast.LENGTH_SHORT);
             myToast.show();
@@ -93,7 +95,7 @@ public class MainActi extends AppCompatActivity {
                 //stopBtn();
                 return true;
             case R.id.action_btn3:
-                startActivity( new Intent(getApplicationContext(), UserPage.class));
+                startActivity( new Intent(getApplicationContext(), userPage.class));
                 return true;
 
             default:

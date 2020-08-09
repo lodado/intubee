@@ -6,7 +6,6 @@ import com.Introbe.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.loginpopup.*
 
 /*
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.loginpopup.*
 작성자 이충헌
 20200809
 */
-class sign_up : Logininterface() {
+class signUp : loginInterFace() {
 
     private var auth: FirebaseAuth? = null
 

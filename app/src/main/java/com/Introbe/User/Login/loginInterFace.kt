@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.loginpopup.*
 작성자 이충헌
 20200809
 */
-abstract class Logininterface : AppCompatActivity() {
+abstract class loginInterFace : AppCompatActivity() {
 
     //작동 실행 성공시 쓰는 function
     open fun successActive(user: FirebaseUser?) {

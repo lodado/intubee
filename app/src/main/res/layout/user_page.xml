@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User.UserPage">
+    tools:context=".User.userPage">
 
     <LinearLayout
 
@@ -29,5 +29,11 @@
             android:gravity="center"
             android:textColor="#0000FF"
             />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            ></ImageView>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
