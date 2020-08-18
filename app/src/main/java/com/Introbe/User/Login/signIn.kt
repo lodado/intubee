@@ -32,8 +32,6 @@ class signIn : loginInterFace() {
         .build()
 
     var GOOGLE_LOGIN_CODE = 9001
-    
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -151,12 +149,19 @@ class signIn : loginInterFace() {
     override fun successActive(user : FirebaseUser?)
     {
         user?.let{
-            dataBaseManager().write("users",user)
+            dataBaseManager().write(it)
 
             startActivity(Intent(this, mainActivity::class.java))
                 //호출 another
             }
         }
+
+    //뒤로가기 막기
+    public override fun onBackPressed() {
+        //super.onBackPressed();
+
+    }
+
     }
 
 

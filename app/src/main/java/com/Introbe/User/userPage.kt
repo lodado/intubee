@@ -1,13 +1,15 @@
 package com.Introbe.User
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Introbe.IntuDatabase.User.myID
 import com.Introbe.R
+import com.Introbe.User.Login.signIn
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.user_page.*
 
 
@@ -18,8 +20,6 @@ my page
 */
 class userPage : AppCompatActivity() {
 
-    var PICK_IMAGE_FROM_ALBUM = 0
-    var storage : FirebaseStorage? = null
     var photoUri : Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -34,6 +34,17 @@ class userPage : AppCompatActivity() {
             userpageID1.text = mine?.get("name").toString()  //setID
             userpageEmail.text = mine?.get("email").toString() //SetEmail
 
+            photoUri = mine?.get("myUri") as Uri?
+
+            photoUri?.let{
+                val imageView1 : ImageView = findViewById(R.id.userpageImage)
+
+               Glide.with(this)
+                //imageView1.setImageURI(photoUri)
+
+            }
+
+
         }  ?: let()
             {
                 Toast.makeText(
@@ -44,6 +55,21 @@ class userPage : AppCompatActivity() {
 
                 android.os.Process.killProcess(android.os.Process.myPid());
             }
-    }
 
+        btnlogout.setOnClickListener{
+
+            //logout
+            FirebaseAuth.getInstance().signOut();
+
+            //clear singleton
+            myID.clearInstance()
+
+            Toast.makeText(this,
+                "log out",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            startActivity(Intent(this, signIn::class.java))
+        }
+    }
 }

@@ -71,8 +71,6 @@ class signUp : loginInterFace() {
                 finish()
             }
         }
-
-
     }
 
     @Override

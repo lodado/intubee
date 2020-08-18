@@ -48,7 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:maxLines="1"
+                android:singleLine = "true"
+                android:lines = "1"
                 android:gravity="center"
                 android:hint="enter ID !"
                 />
@@ -75,7 +76,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:maxLines="1"
+                android:singleLine = "true"
+                android:lines = "1"
                 android:inputType="textPassword"
                 android:gravity="center"
                 android:layout_weight="2"

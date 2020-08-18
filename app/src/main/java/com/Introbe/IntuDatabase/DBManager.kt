@@ -2,17 +2,17 @@ package com.Introbe.IntuDatabase
 
 import com.Introbe.IntuDatabase.Util.*
 
-public interface DBManager <in T>{
+public interface DBManager{
 
-    val reading : readFireBase
-    val writing : writeFireBase
+    val reading : Any
+    val writing : Any
 
-    open fun write(kindof : String, user : T?)
+    open fun <T> write(user : T?)
     {
 
     }
 
-    open fun read(kindof : String, user: T?)
+    open fun <T> read(user : T?)
     {
 
     }

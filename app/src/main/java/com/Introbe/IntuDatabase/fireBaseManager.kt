@@ -4,22 +4,23 @@ import com.Introbe.IntuDatabase.Util.readFireBase
 import com.Introbe.IntuDatabase.Util.writeFireBase
 import com.google.firebase.auth.FirebaseUser
 
-class dataBaseManager : DBManager <FirebaseUser>{
+class dataBaseManager : DBManager{
 
     override val reading = readFireBase()
     override val writing = writeFireBase()
 
-    override fun read(kindof : String, user: FirebaseUser?)
+    override fun <T> read(user: T?)
     {
 
     }
 
-    override fun write(kindof : String, user: FirebaseUser?)
+    override fun <T>  write( user: T?)
     {
-        if(kindof == "users")
-        {
-            writing.userWrite(user)
-        }
+       when(user)
+       {
+          is FirebaseUser ->  writing.userWrite(user)
+
+       }
 
     }
 

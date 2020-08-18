@@ -34,7 +34,7 @@ public class mainActivity extends AppCompatActivity {
         frag_3 = new frag3();
         frag_4 = new frag4();
 
-        setContentView(R.layout.example);
+        setContentView(R.layout.itsmainpage);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -44,7 +44,6 @@ public class mainActivity extends AppCompatActivity {
             myToast.show();
             finish();
         }
-
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, frag_1).commitAllowingStateLoss();
@@ -101,6 +100,12 @@ public class mainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    //뒤로가기 막기
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
 }
