@@ -38,7 +38,7 @@ public class mainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            dataBaseUser mine = myID.getInstance(user);
+            //dataBaseUser mine = myID.getInstance(user);
         } else {
             Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop running application", Toast.LENGTH_SHORT);
             myToast.show();

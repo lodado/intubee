@@ -1,8 +1,15 @@
 package com.Introbe.User.Login
 
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
+import android.os.Build
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.Introbe.R
+import com.bumptech.glide.Glide
+import com.bumptech.glide.signature.ObjectKey
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +28,7 @@ abstract class loginInterFace : AppCompatActivity() {
     open fun successActive(user: FirebaseUser?) {
 
     }
+
 
     //edittext를 받아서 널체크하고 널이면 유저에게 알려주고, 널 아니면 string 반환
     protected fun toastText(txt: EditText): String? {
