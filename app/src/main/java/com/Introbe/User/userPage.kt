@@ -28,7 +28,7 @@ class userPage : photo() {
         setContentView(R.layout.user_page)
 
         //update firebaseUserProfile
-        googleUserProfile()
+        fireBaseProfile()
 
         btnlogout.setOnClickListener{
             //logout
@@ -44,7 +44,7 @@ class userPage : photo() {
     }
 
     //update firebaseUserProfile
-    private final fun googleUserProfile() {
+    private final fun fireBaseProfile() {
 
             FirebaseAuth.getInstance().currentUser?.let {
 

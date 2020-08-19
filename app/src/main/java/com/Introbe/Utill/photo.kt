@@ -5,6 +5,7 @@ import android.graphics.drawable.shapes.OvalShape
 import android.net.Uri
 import android.os.Build
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Introbe.R
 import com.bumptech.glide.Glide
@@ -23,7 +24,20 @@ open class photo : AppCompatActivity() {
         if(photoUri != null)
         {
             //프로필 이미지 load
-            val imageView1: ImageView = findViewById(rPage)
+            val imageView1 : ImageView
+            try {
+                imageView1 = findViewById(rPage)
+            }
+            catch(e : Exception)
+            {
+                Toast.makeText(
+                    this,
+                    e.stackTrace.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return;
+            }
+
             imageView1.setBackground(ShapeDrawable(OvalShape()))
             if (Build.VERSION.SDK_INT >= 21) {
                 imageView1.setClipToOutline(true);
@@ -35,7 +49,6 @@ open class photo : AppCompatActivity() {
             //error
         }
     }
-
     //사각형 사진 업데이트
     /*
    *  rPage R.id.사진
@@ -44,7 +57,21 @@ open class photo : AppCompatActivity() {
     */
     protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, photoUri: Uri?)
     {
-        val imageView1: ImageView = findViewById(rPage)
+        val imageView1 : ImageView
+        try {
+             imageView1 = findViewById(rPage)
+        }
+        catch(e : Exception)
+        {
+            Toast.makeText(
+                this,
+                e.stackTrace.toString(),
+                Toast.LENGTH_SHORT
+            ).show()
+
+            return;
+        }
+
         pictureUpdatebyGlide(myclass, imageView1, photoUri)
     }
 

@@ -15,14 +15,14 @@ import com.google.firebase.auth.FirebaseUser
 
 class dataBaseManager : AppCompatActivity() ,DBManager{
 
-    override val reading = readFireBase()
-    override val writing = writeFireBase()
+    private val readingFireBase = readFireBase()
+    private val writingFireBase  = writeFireBase()
 
     override fun <T> read(user: T?): Map<String, Any?>? {
 
         when(user)
         {
-            is FirebaseUser -> return reading.userRead(user)
+            is FirebaseUser -> return readingFireBase.userRead(user)
         }
 
         return null
@@ -30,7 +30,7 @@ class dataBaseManager : AppCompatActivity() ,DBManager{
 
     override fun <T>  write( user: T?) {
         when (user) {
-            is FirebaseUser -> writing.userWrite(user)
+            is FirebaseUser -> writingFireBase.userWrite(user)
 
         }
     }
@@ -39,7 +39,7 @@ class dataBaseManager : AppCompatActivity() ,DBManager{
     fun <T> toMap(user: T?): Map<String, Any?>? {
         when(user)
         {
-            is FirebaseUser -> return reading.toMap(user)
+            is FirebaseUser -> return readingFireBase.toMap(user)
         }
 
         return null
