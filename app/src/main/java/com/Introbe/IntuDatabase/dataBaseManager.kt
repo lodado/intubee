@@ -18,13 +18,14 @@ class dataBaseManager : AppCompatActivity() ,DBManager{
     override val reading = readFireBase()
     override val writing = writeFireBase()
 
-    override fun <T> read(user: T?)
-    {
+    override fun <T> read(user: T?): Map<String, Any?>? {
 
         when(user)
         {
-            is FirebaseUser -> reading.userRead(user)
+            is FirebaseUser -> return reading.userRead(user)
         }
+
+        return null
     }
 
     override fun <T>  write( user: T?) {
@@ -39,7 +40,6 @@ class dataBaseManager : AppCompatActivity() ,DBManager{
         when(user)
         {
             is FirebaseUser -> return reading.toMap(user)
-
         }
 
         return null

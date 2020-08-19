@@ -12,8 +12,6 @@ public interface DBManager{
 
     }
 
-    open fun <T> read(user : T?)
-    {
+    open fun <T> read(user : T?) : Map<String, Any?>?
 
-    }
 }

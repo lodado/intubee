@@ -35,6 +35,15 @@ public class myID extends dataBaseUser {
             return Mine;
     }
 
+    public static dataBaseUser getInstance() {
+
+        if(Mine==null)
+        {
+            return null;
+        }
+
+        return Mine;
+    }
     //reset
     public static void clearInstance()
     {

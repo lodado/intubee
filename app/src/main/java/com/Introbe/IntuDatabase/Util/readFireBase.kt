@@ -10,6 +10,7 @@ class readFireBase {
     fun userRead(user: FirebaseUser?): Map<String, Any?>? {
         if(user!=null)
         {
+
          return toMap(user)
         }
         return null
@@ -18,9 +19,9 @@ class readFireBase {
     //separate it
     fun toMap(user: FirebaseUser): Map<String, Any?>?
     {
-        val name = user?.getDisplayName()
-        val email = user.getEmail()
-        val myUri : Uri? = user.getPhotoUrl()
+        val name = user.displayName
+        val email = user.email
+        val myUri : Uri? = user.photoUrl
 
         val result =
             HashMap<String, Any>()

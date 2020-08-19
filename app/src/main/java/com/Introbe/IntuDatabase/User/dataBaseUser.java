@@ -12,8 +12,8 @@ import java.util.Map;
 */
 public abstract class dataBaseUser {
 
-    private dataBaseManager reader = new dataBaseManager();
-    private FirebaseUser ourUser = null;
+    //private dataBaseManager reader = new dataBaseManager();
+    protected FirebaseUser ourUser = null;
 
     //private String name;
     //private String email;
@@ -29,8 +29,13 @@ public abstract class dataBaseUser {
         }
     }
 
-    //return User's infomations
-    public Map<String, Object> toMap() {
-        return reader.toMap(ourUser);
+    public FirebaseUser getOurUser()
+    {
+        return ourUser;
     }
+
+    //return User's infomations
+   /* public Map<String, Object> toMap() {
+        return reader.toMap(ourUser);
+    }*/
 }
