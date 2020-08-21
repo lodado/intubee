@@ -1,4 +1,4 @@
-package com.Introbe.Utill
+package com.Introbe.IntuDatabase.Util
 
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
@@ -7,11 +7,17 @@ import android.os.Build
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.Introbe.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.signature.ObjectKey
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
+
 
 open class photo : AppCompatActivity() {
+
+    protected val storage : storageCase = storageCase()
 
     //동그란 사진 업데이트
     /*
@@ -19,8 +25,10 @@ open class photo : AppCompatActivity() {
     *  myClass this@class명
     *  phtoUri URL
      */
-    protected fun circleImage(rPage: Int, myclass: AppCompatActivity, photoUri: Uri?)
+    protected fun circleImage(rPage: Int, myclass: AppCompatActivity, str:String)
     {
+        val photoUri : StorageReference = storage.getURI(str)
+
         if(photoUri != null)
         {
             //프로필 이미지 load
@@ -55,8 +63,10 @@ open class photo : AppCompatActivity() {
    *  myClass this@class명
    *  phtoUri URL
     */
-    protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, photoUri: Uri?)
+    protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, str : String)
     {
+        val photoUri : StorageReference = storage.getURI(str)
+
         val imageView1 : ImageView
         try {
              imageView1 = findViewById(rPage)
@@ -81,15 +91,28 @@ open class photo : AppCompatActivity() {
    *  myClass this@class명
    *  phtoUri URL
     */
-    protected open fun pictureUpdatebyGlide(myclass:AppCompatActivity, imgView : ImageView, photoUri : Uri?)
+    protected open fun pictureUpdatebyGlide(myclass:AppCompatActivity,
+                                            imgView : ImageView,
+                                            photoUri: StorageReference)
     {
         if(photoUri != null)
         {
-            Glide.with(myclass).load(photoUri.toString())
+            Glide.with(myclass).load(photoUri)
                 .signature(ObjectKey(System.currentTimeMillis()))
                 .into(imgView)
-            imgView.setImageURI(photoUri)
+            //imgView.setImageURI(photoUri)
         }
     }
+
+    protected class storageCase {
+
+        var storage: FirebaseStorage = FirebaseStorage.getInstance();
+        var storageRef: StorageReference = storage.getReference()
+
+        open fun getURI(str :String): StorageReference {
+            return Firebase.storage.reference
+        }
+    }
+
 
 }

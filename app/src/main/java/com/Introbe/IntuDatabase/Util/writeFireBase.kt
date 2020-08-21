@@ -26,7 +26,4 @@ class writeFireBase {
             //just for record in database
         }
     }
-
-
-
 }

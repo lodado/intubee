@@ -1,19 +1,12 @@
 package com.Introbe.User.Login
 
 import android.content.Intent
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.OvalShape
-import android.os.Build
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.Toast
-import com.Introbe.IntuDatabase.User.dataBaseUser
 import com.Introbe.IntuDatabase.User.myID
 import com.Introbe.IntuDatabase.dataBaseManager
 import com.Introbe.R
 import com.Introbe.mainpage.mainActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.signature.ObjectKey
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount

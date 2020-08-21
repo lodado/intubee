@@ -12,8 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.Introbe.IntuDatabase.User.dataBaseUser;
-import com.Introbe.IntuDatabase.User.myID;
 import com.Introbe.R;
 import com.Introbe.User.userPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

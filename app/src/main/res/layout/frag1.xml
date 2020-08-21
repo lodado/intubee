@@ -10,6 +10,9 @@
     android:background="#F15C5C"
     >
 
+
+
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -19,17 +22,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="put img here"
-        android:textColor="#000"
-        android:textSize="60sp"
 
-        app:layout_constraintTop_toTopOf="parent"
-        />
+            <view
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                class="android.support.v4.view.ViewPager"
+                android:id="@+id/view"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
 
 
     <TextView
