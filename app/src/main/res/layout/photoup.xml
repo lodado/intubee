@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntuDatabase.Util.photoUp">
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType = "fitCenter"
+        >
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/photouploadimg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+
+        android:layout_marginTop="20dp"
+        >
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtlayout"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/photoupcancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="cancel"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/photoupaccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="accept"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtlayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/photouploadimg">
+        <EditText
+            android:id="@+id/editphotoex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="이미지 설명"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.userPage"></activity>
+        <activity android:name=".IntuDatabase.Util.photoUp"></activity>
+        <activity android:name=".User.userPage" />
         <activity android:name=".User.Login.signUp" />
         <activity android:name=".mainpage.mainActivity" />
         <activity android:name=".User.Login.signIn">
