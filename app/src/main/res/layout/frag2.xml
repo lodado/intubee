@@ -15,12 +15,6 @@
         android:layout_height="match_parent"
         >
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,23 +36,32 @@
                 <LinearLayout
                     android:id="@+id/content1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <Button
                         android:id="@+id/uploadgesi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:text="게시판 작성"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         />
+                    <ListView
+                        android:id="@+id/listview1"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"/>
+
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/content2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="#2196F3"
                     android:orientation="vertical">
 
@@ -103,7 +106,7 @@
                 <LinearLayout
                     android:id="@+id/content3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                     android:background="#2196F3"
                 android:orientation="vertical">
 
@@ -118,9 +121,8 @@
 
             </FrameLayout>
         </LinearLayout>
-        </ScrollView>
-    </TabHost>
 
+    </TabHost>
 
 
 </RelativeLayout>

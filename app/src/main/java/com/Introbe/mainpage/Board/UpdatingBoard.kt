@@ -45,11 +45,18 @@ class UpdatingBoard : AppCompatActivity() {
                 photoPickerIntent.type = "image/*"
 
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
-
-
             }
         }
 
+
+            photoupcancel.setOnClickListener{
+                finish()
+            }
+
+            photoupaccept.setOnClickListener{
+                contentUpload()
+                finish()
+            }
 
 
     }
@@ -62,7 +69,6 @@ class UpdatingBoard : AppCompatActivity() {
                 photoUri = data?.data
                 photouploadimg.setImageURI(photoUri)
 
-                contentUpload()
             }
             else
             {
@@ -79,6 +85,7 @@ class UpdatingBoard : AppCompatActivity() {
                 this,
                 "업로드 ",
                 Toast.LENGTH_SHORT)
+           ,editphotoex
             )
 
         }

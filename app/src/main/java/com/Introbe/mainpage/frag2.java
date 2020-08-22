@@ -5,15 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TabHost;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.Introbe.R;
 import com.Introbe.mainpage.Board.UpdatingBoard;
+import com.Introbe.mainpage.Board.listViewAdapter;
 
 public class frag2 extends Fragment {
 
@@ -33,6 +37,12 @@ public class frag2 extends Fragment {
         =============================================================================================
          */
 
+          String LIST_MENU[];
+
+        LIST_MENU = new String[50];
+
+        for(int i=0; i<50; i++) LIST_MENU[i] = "List"+i;
+
         TabHost.TabSpec ts1 = tabHost1.newTabSpec("Tab Spec 1") ;
         ts1.setContent(R.id.content1) ;
         ts1.setIndicator("TAB 1") ;
@@ -46,6 +56,22 @@ public class frag2 extends Fragment {
                 startActivity( new Intent(getActivity().getApplicationContext(), UpdatingBoard.class));
             }
         });
+
+        ListView listview ;
+        listViewAdapter adapter = new listViewAdapter();
+
+        listview = (ListView) getActivity().findViewById(R.id.listview1);
+        listview.setAdapter(adapter);
+
+        for(int i=0; i<100; i++)
+            adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
+                "Box", "Account Box Black 36dp") ;
+        // 두 번째 아이템 추가.
+        adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
+                "Circle", "Account Circle Black 36dp") ;
+        // 세 번째 아이템 추가.
+        adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
+                "Ind", "Assignment Ind Black 36dp") ;
 
         /*
         =============================================================================================
