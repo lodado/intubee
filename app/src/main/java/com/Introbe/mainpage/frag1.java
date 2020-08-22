@@ -1,4 +1,4 @@
-package com.Introbe.mainpage.mainpage;
+package com.Introbe.mainpage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

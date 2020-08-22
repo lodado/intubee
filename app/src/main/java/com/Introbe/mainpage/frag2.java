@@ -1,4 +1,4 @@
-package com.Introbe.mainpage.Board;
+package com.Introbe.mainpage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.Introbe.R;
+import com.Introbe.mainpage.Board.UpdatingBoard;
 
 public class frag2 extends Fragment {
 
@@ -28,8 +29,6 @@ public class frag2 extends Fragment {
 
         TabHost tabHost1 = (TabHost) getView().findViewById(R.id.tabHost1) ;
         tabHost1.setup() ;
-
-
           /*
         =============================================================================================
          */

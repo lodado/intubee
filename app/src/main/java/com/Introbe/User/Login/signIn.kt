@@ -3,7 +3,7 @@ package com.Introbe.User.Login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.Introbe.IntuDatabase.User.myID
+import com.Introbe.IntuDatabase.DBUser.myID
 import com.Introbe.IntuDatabase.dataBaseManager
 import com.Introbe.R
 import com.Introbe.mainpage.mainActivity

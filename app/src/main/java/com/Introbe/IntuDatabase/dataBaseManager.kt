@@ -1,19 +1,17 @@
 package com.Introbe.IntuDatabase
 
-import com.Introbe.IntuDatabase.Util.readFireBase
-import com.Introbe.IntuDatabase.Util.writeFireBase
+import com.Introbe.IntuDatabase.Util.fireDBcontroller
 import com.google.firebase.auth.FirebaseUser
 
 class dataBaseManager : DBManager{
 
-    private val readingFireBase = readFireBase()
-    private val writingFireBase  = writeFireBase()
+    private val FireBasecontroller = fireDBcontroller()
 
     override fun <T> read(user: T?): Map<String, Any?>? {
 
         when(user)
         {
-            is FirebaseUser -> return readingFireBase.userRead(user)
+            is FirebaseUser -> return FireBasecontroller.userRead(user)
             //is mysqlUser
         }
 
@@ -22,7 +20,7 @@ class dataBaseManager : DBManager{
 
     override fun <T>  write( user: T?) {
         when (user) {
-            is FirebaseUser -> writingFireBase.userWrite(user)
+            is FirebaseUser -> FireBasecontroller.userWrite(user)
             //is mysqlUser
         }
     }
@@ -31,7 +29,7 @@ class dataBaseManager : DBManager{
     fun <T> toMap(user: T?): Map<String, Any?>? {
         when(user)
         {
-            is FirebaseUser -> return readingFireBase.toMap(user)
+            is FirebaseUser -> return FireBasecontroller.toMap(user)
             //is mysqlUser
         }
 

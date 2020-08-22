@@ -10,11 +10,15 @@ import androidx.core.app.ActivityCompat
 import com.Introbe.IntuDatabase.Util.photo
 import com.Introbe.IntuDatabase.Util.photoUpload
 import com.Introbe.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.photoup.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+//게시판에 자신의 게시판 업데이트
 class UpdatingBoard : AppCompatActivity() {
 
     var PICK_IMAGE_FROM_ALBUM = 0
@@ -22,23 +26,32 @@ class UpdatingBoard : AppCompatActivity() {
     var storage : FirebaseStorage? = null
     var photoUri : Uri? = null
 
+    //var auth : FirebaseAuth? = null
+    //var firestore : FirebaseFirestore? = null
+
     var photoManager = photoUpload()
 
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.photoup)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.photoup)
+            //init
+            storage = FirebaseStorage.getInstance()
 
-        storage = FirebaseStorage.getInstance()
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1).run{
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1).run{
         photouploadimg.setOnClickListener {
 
                 var photoPickerIntent = Intent(Intent.ACTION_PICK)
                 photoPickerIntent.type = "image/*"
 
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
+
+
             }
         }
+
+
+
     }
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -48,6 +61,8 @@ class UpdatingBoard : AppCompatActivity() {
             {
                 photoUri = data?.data
                 photouploadimg.setImageURI(photoUri)
+
+                contentUpload()
             }
             else
             {
@@ -65,7 +80,6 @@ class UpdatingBoard : AppCompatActivity() {
                 "업로드 ",
                 Toast.LENGTH_SHORT)
             )
-
 
         }
 

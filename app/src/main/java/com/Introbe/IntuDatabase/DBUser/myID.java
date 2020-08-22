@@ -1,4 +1,4 @@
-package com.Introbe.IntuDatabase.User;
+package com.Introbe.IntuDatabase.DBUser;
 
 
 import com.google.firebase.auth.FirebaseUser;
@@ -8,7 +8,7 @@ my ID 정보
 작성자 이충헌
 20200809
 */
-public class myID extends dataBaseUser {
+public class myID extends fireDBUser {
 
     private static myID Mine = null;
 
@@ -17,10 +17,11 @@ public class myID extends dataBaseUser {
     {
         super(user);
     }
+    //private myID(mysqlUser user){super(user)}
 
     //singleton patton
     //login user must only have a one ID
-    public static dataBaseUser getInstance(FirebaseUser user) {
+    public static myID getInstance(FirebaseUser user) {
 
         if(user == null)
         {
@@ -29,7 +30,7 @@ public class myID extends dataBaseUser {
 
         if(Mine==null)
         {
-            Mine = new myID(user);
+                Mine = new myID(user);
         }
 
             return Mine;

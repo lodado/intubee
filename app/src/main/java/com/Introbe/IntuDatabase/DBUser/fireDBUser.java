@@ -1,4 +1,4 @@
-package com.Introbe.IntuDatabase.User;
+package com.Introbe.IntuDatabase.DBUser;
 
 
 import com.google.firebase.auth.FirebaseUser;
@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser;
 작성자 이충헌
 20200809
 */
-public abstract class dataBaseUser implements user {
+public abstract class fireDBUser implements user {
 
     //private dataBaseManager reader = new dataBaseManager();
     private FirebaseUser ourUser = null;
@@ -17,7 +17,7 @@ public abstract class dataBaseUser implements user {
     //private Uri myUri;
 
     //constructor
-    public dataBaseUser(FirebaseUser user)
+    public fireDBUser(FirebaseUser user)
     {
         //null double check 권장
         if(user != null) {

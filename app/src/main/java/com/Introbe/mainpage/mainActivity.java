@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.Introbe.R;
 import com.Introbe.User.userPage;
-import com.Introbe.mainpage.Board.frag2;
-import com.Introbe.mainpage.mainpage.frag1;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

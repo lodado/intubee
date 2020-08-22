@@ -1,4 +1,4 @@
-package com.Introbe.IntuDatabase.User;
+package com.Introbe.IntuDatabase.DBUser;
 
 public class mysqlUser implements user {
 

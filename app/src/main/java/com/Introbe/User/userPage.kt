@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import com.Introbe.IntuDatabase.DBManager
-import com.Introbe.IntuDatabase.User.myID
+import com.Introbe.IntuDatabase.DBUser.myID
 import com.Introbe.IntuDatabase.Util.photo
 import com.Introbe.IntuDatabase.dataBaseManager
 import com.Introbe.R

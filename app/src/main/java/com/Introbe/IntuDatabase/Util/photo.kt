@@ -2,7 +2,6 @@ package com.Introbe.IntuDatabase.Util
 
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
-import android.net.Uri
 import android.os.Build
 import android.widget.ImageView
 import android.widget.Toast
@@ -17,10 +16,10 @@ import com.google.firebase.storage.ktx.storage
 
 open class photo : AppCompatActivity() {
 
-    protected fun getURI(str :String): StorageReference {
+    protected fun getReference(str :String): StorageReference {
 
         var storage: FirebaseStorage = FirebaseStorage.getInstance();
-        var storageRef: StorageReference = storage.getReference()
+        var storageRef: StorageReference = storage.reference
 
         return Firebase.storage.reference
     }
@@ -32,7 +31,7 @@ open class photo : AppCompatActivity() {
     *  phtoUri URL
      */
     protected fun circleImage(rPage: Int, myclass: AppCompatActivity, str: String) {
-        val photoUri: StorageReference = getURI(str)
+        val photoUri: StorageReference = getReference(str)
 
         if (photoUri != null) {
             //프로필 이미지 load
@@ -65,7 +64,7 @@ open class photo : AppCompatActivity() {
    *  phtoUri URL
     */
     protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, str: String) {
-        val photoUri: StorageReference = getURI(str)
+        val photoUri: StorageReference = getReference(str)
 
         val imageView1: ImageView
         try {
