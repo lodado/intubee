@@ -1,19 +1,8 @@
 package com.Introbe.IntuDatabase
 
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.OvalShape
-import android.net.Uri
-import android.os.Build
-import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
-import com.Introbe.IntuDatabase.Util.photo
 import com.Introbe.IntuDatabase.Util.readFireBase
 import com.Introbe.IntuDatabase.Util.writeFireBase
-import com.Introbe.R
-import com.bumptech.glide.Glide
-import com.bumptech.glide.signature.ObjectKey
 import com.google.firebase.auth.FirebaseUser
-import java.net.URI
 
 class dataBaseManager : DBManager{
 

@@ -17,7 +17,13 @@ import com.google.firebase.storage.ktx.storage
 
 open class photo : AppCompatActivity() {
 
-    protected val storage : storageCase = storageCase()
+    protected fun getURI(str :String): StorageReference {
+
+        var storage: FirebaseStorage = FirebaseStorage.getInstance();
+        var storageRef: StorageReference = storage.getReference()
+
+        return Firebase.storage.reference
+    }
 
     //동그란 사진 업데이트
     /*
@@ -25,19 +31,15 @@ open class photo : AppCompatActivity() {
     *  myClass this@class명
     *  phtoUri URL
      */
-    protected fun circleImage(rPage: Int, myclass: AppCompatActivity, str:String)
-    {
-        val photoUri : StorageReference = storage.getURI(str)
+    protected fun circleImage(rPage: Int, myclass: AppCompatActivity, str: String) {
+        val photoUri: StorageReference = getURI(str)
 
-        if(photoUri != null)
-        {
+        if (photoUri != null) {
             //프로필 이미지 load
-            val imageView1 : ImageView
+            val imageView1: ImageView
             try {
                 imageView1 = findViewById(rPage)
-            }
-            catch(e : Exception)
-            {
+            } catch (e: Exception) {
                 Toast.makeText(
                     this,
                     e.stackTrace.toString(),
@@ -51,28 +53,24 @@ open class photo : AppCompatActivity() {
                 imageView1.setClipToOutline(true);
             }
             pictureUpdatebyGlide(myclass, imageView1, photoUri)
-        }
-        else
-        {
+        } else {
             //error
         }
     }
+
     //사각형 사진 업데이트
     /*
    *  rPage R.id.사진
    *  myClass this@class명
    *  phtoUri URL
     */
-    protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, str : String)
-    {
-        val photoUri : StorageReference = storage.getURI(str)
+    protected open fun squareImage(rPage: Int, myclass: AppCompatActivity, str: String) {
+        val photoUri: StorageReference = getURI(str)
 
-        val imageView1 : ImageView
+        val imageView1: ImageView
         try {
-             imageView1 = findViewById(rPage)
-        }
-        catch(e : Exception)
-        {
+            imageView1 = findViewById(rPage)
+        } catch (e: Exception) {
             Toast.makeText(
                 this,
                 e.stackTrace.toString(),
@@ -91,28 +89,17 @@ open class photo : AppCompatActivity() {
    *  myClass this@class명
    *  phtoUri URL
     */
-    protected open fun pictureUpdatebyGlide(myclass:AppCompatActivity,
-                                            imgView : ImageView,
-                                            photoUri: StorageReference)
-    {
-        if(photoUri != null)
-        {
+    protected open fun pictureUpdatebyGlide(
+        myclass: AppCompatActivity,
+        imgView: ImageView,
+        photoUri: StorageReference
+    ) {
+        if (photoUri != null) {
             Glide.with(myclass).load(photoUri)
                 .signature(ObjectKey(System.currentTimeMillis()))
                 .into(imgView)
             //imgView.setImageURI(photoUri)
         }
     }
-
-    protected class storageCase {
-
-        var storage: FirebaseStorage = FirebaseStorage.getInstance();
-        var storageRef: StorageReference = storage.getReference()
-
-        open fun getURI(str :String): StorageReference {
-            return Firebase.storage.reference
-        }
-    }
-
 
 }

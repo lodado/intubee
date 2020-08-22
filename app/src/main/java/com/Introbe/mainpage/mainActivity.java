@@ -10,13 +10,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.Introbe.IntuDatabase.Util.photoUp;
 import com.Introbe.R;
 import com.Introbe.User.userPage;
+import com.Introbe.mainpage.Board.frag2;
+import com.Introbe.mainpage.mainpage.frag1;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

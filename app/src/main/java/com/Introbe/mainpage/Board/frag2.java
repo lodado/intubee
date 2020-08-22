@@ -1,4 +1,4 @@
-package com.Introbe.mainpage;
+package com.Introbe.mainpage.Board;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.Introbe.IntuDatabase.Util.photoUp;
 import com.Introbe.R;
 
 public class frag2 extends Fragment {
@@ -45,7 +44,7 @@ public class frag2 extends Fragment {
         button_uploadgesi.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity( new Intent(getActivity().getApplicationContext(), photoUp.class));
+                startActivity( new Intent(getActivity().getApplicationContext(), UpdatingBoard.class));
             }
         });
 
