@@ -1,6 +1,7 @@
 package com.Introbe.mainpage;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +10,29 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.Introbe.IntuDatabase.Util.photo;
 import com.Introbe.R;
 import com.Introbe.mainpage.Board.UpdatingBoard;
+import com.Introbe.mainpage.Board.contentDTO;
 import com.Introbe.mainpage.Board.listViewAdapter;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class frag2 extends Fragment {
+
+    ListView listview ;
+    listViewAdapter adapter;
+
+    private photo photoDownload = new photo();
+    ArrayList<contentDTO> cont=photoDownload.getContentDTO();
 
     @Nullable
     @Override
@@ -31,11 +44,14 @@ public class frag2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TabHost tabHost1 = (TabHost) getView().findViewById(R.id.tabHost1) ;
-        tabHost1.setup() ;
-          /*
+
+
+         /*
         =============================================================================================
          */
+
+        TabHost tabHost1 = (TabHost) getView().findViewById(R.id.tabHost1) ;
+        tabHost1.setup() ;
 
         TabHost.TabSpec ts1 = tabHost1.newTabSpec("Tab Spec 1") ;
         ts1.setContent(R.id.content1) ;
@@ -48,26 +64,16 @@ public class frag2 extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity( new Intent(getActivity().getApplicationContext(), UpdatingBoard.class));
+
+                refreshView(); // 뷰 설정
             }
         });
 
-        ListView listview ;
-        listViewAdapter adapter = new listViewAdapter();
-
-        listview = (ListView) getActivity().findViewById(R.id.listview1);
-        listview.setAdapter(adapter);
+        refreshView(); //뷰 설정
+        //시간상 문제로 인하여 어뎁터뷰를 재활용 하지 않고 그대로 전부 삭제한후 재 출력 -> (오버헤드 무시)
+        //+ 리사이클러 뷰 사용가능
 
 
-
-        for(int i=0; i<100; i++)
-            adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
-                "Box", "Account Box Black 36dp") ;
-        // 두 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
-                "Circle", "Account Circle Black 36dp") ;
-        // 세 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),
-                "Ind", "Assignment Ind Black 36dp") ;
 
         /*
         =============================================================================================
@@ -88,5 +94,27 @@ public class frag2 extends Fragment {
         tabHost1.addTab(ts3) ;
 
     }
+
+    private void refreshView()
+    {
+        adapter = new listViewAdapter();
+        listview=null;
+
+        listview = (ListView) getActivity().findViewById(R.id.listview1);
+        listview.setAdapter(adapter);
+
+            for (int i = 0; i < cont.size(); i++) {
+                String thisId = cont.get(i).getUserId();
+                String thisExp = cont.get(i).getExplain();
+
+
+                adapter.addItem(getConText(), thisId, thisExp, Uri.parse(cont.get(i).getImageUrl()));
+
+
+                if(i-1 == cont.size()) cont=photoDownload.getContentDTO();
+            }
+
+    }
+
 }
 

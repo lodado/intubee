@@ -54,8 +54,14 @@ class UpdatingBoard : AppCompatActivity() {
             }
 
             photoupaccept.setOnClickListener{
-                contentUpload()
-                finish()
+
+                if(photoUri == null) {
+                    Toast.makeText(this, "이미지를 업로드하세요.", Toast.LENGTH_LONG)
+                }
+                else {
+                    contentUpload()
+                    finish()
+                }
             }
 
 

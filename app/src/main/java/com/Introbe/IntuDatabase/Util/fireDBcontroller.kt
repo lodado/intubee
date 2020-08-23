@@ -1,11 +1,14 @@
 package com.Introbe.IntuDatabase.Util
 
 import android.net.Uri
+import com.Introbe.mainpage.Board.contentDTO
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
-//파이어베이스 읽을때 쓰는 클래스
+//파이어베이스 read/write 할때 쓰는 클래스
 class fireDBcontroller {
 
     fun userWrite(user: FirebaseUser?) {

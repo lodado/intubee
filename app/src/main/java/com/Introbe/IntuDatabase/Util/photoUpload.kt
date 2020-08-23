@@ -14,6 +14,7 @@ import java.util.*
 
 class photoUpload : photo() {
 
+
     open fun photoUpload(storage : FirebaseStorage?,
                          photoUri : Uri?,
                          tst :Toast,
@@ -23,40 +24,27 @@ class photoUpload : photo() {
         val imageFileName = "IMAGE_"+new_timestamp+"_.png"
 
         var storageRef = storage?.reference?.child("images")?.child(imageFileName)
+
         storageRef?.putFile(photoUri!!)?.addOnSuccessListener { uri ->
             tst.show()
-
-
-            var auth : FirebaseAuth? = null
-            var firestore : FirebaseFirestore? = null
 
                        auth = FirebaseAuth.getInstance()
                        firestore = FirebaseFirestore.getInstance()
 
                        var contentDTO = contentDTO()
 
-
-                       with(contentDTO)
-                       {
+                      contentDTO.run{
 
                            imageUrl = uri.toString()
-
                            uid = auth?.currentUser?.uid
-
                            userId = auth?.currentUser?.email
-
                            explain = imgtext?.text.toString()
-
                            timestamp = System.currentTimeMillis()
-
+                           this
                        }
 
-                       firestore?.collection("images")?.document(contentDTO.timestamp.toString())?.set(contentDTO)
+                       firestore?.collection("images")?.document()?.set(contentDTO)
                        setResult(Activity.RESULT_OK)
-
         }
     }
-
-
-
 }

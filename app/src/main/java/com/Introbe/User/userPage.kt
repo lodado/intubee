@@ -62,18 +62,8 @@ class userPage : photo() {
                     val imageView : ImageView
 
                     val photoUri : Uri? = get("myUri") as Uri?;
-
                     if(photoUri != null) {
-                        imageView = findViewById(R.id.userpageImage)
-
-                        imageView.setBackground(ShapeDrawable(OvalShape()))
-                        if (Build.VERSION.SDK_INT >= 21) {
-                            imageView.setClipToOutline(true);
-                        }
-                        Glide.with(this@userPage).load(photoUri)
-                            .signature(ObjectKey(System.currentTimeMillis()))
-                            .into(imageView)
-                        //imageView.setImageURI(photoUri)
+                        circleImage(R.id.userpageImage, this@userPage, photoUri)
                     }
                 }
             }
