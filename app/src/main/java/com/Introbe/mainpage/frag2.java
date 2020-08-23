@@ -37,12 +37,6 @@ public class frag2 extends Fragment {
         =============================================================================================
          */
 
-          String LIST_MENU[];
-
-        LIST_MENU = new String[50];
-
-        for(int i=0; i<50; i++) LIST_MENU[i] = "List"+i;
-
         TabHost.TabSpec ts1 = tabHost1.newTabSpec("Tab Spec 1") ;
         ts1.setContent(R.id.content1) ;
         ts1.setIndicator("TAB 1") ;
@@ -62,6 +56,8 @@ public class frag2 extends Fragment {
 
         listview = (ListView) getActivity().findViewById(R.id.listview1);
         listview.setAdapter(adapter);
+
+
 
         for(int i=0; i<100; i++)
             adapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground),

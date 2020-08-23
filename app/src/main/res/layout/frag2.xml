@@ -33,30 +33,58 @@
                 android:layout_height="wrap_content"
                 >
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/content1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/uploadgesi"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/linear__1"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
 
-                        android:text="게시판 작성"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        />
+                        <Button
+                            android:id="@+id/uploadgesi"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="게시판 작성"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:id="@+id/uploadgesi2"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                           android:layout_weight="3"
+                            />
+                        <Button
+                            android:id="@+id/uploadgesi3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="내가 쓴글"
+                            />
+
+                    </LinearLayout>
+
+
                     <ListView
+                        android:layout_below="@id/linear__1"
                         android:id="@+id/listview1"
                         android:layout_width="match_parent"
                         android:layout_height="500dp"/>
 
 
-                </LinearLayout>
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/content2"

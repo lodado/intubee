@@ -38,6 +38,9 @@ public class listViewAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.layout_sns, parent, false);
+            ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
+            layoutParams.height=850;
+            convertView.setLayoutParams(layoutParams);
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
