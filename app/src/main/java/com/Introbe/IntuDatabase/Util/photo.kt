@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
-import java.util.ArrayList
+import java.util.*
 
 
 open class photo : AppCompatActivity() {
@@ -28,10 +28,10 @@ open class photo : AppCompatActivity() {
     open fun getContentDTO(): ArrayList<contentDTO>? {
 
         wtffucntion()
+
         print("wtf")
         return contentDTOS
     }
-
     //매우 느림
     private fun wtffucntion() {
         contentDTOS = arrayListOf()
@@ -42,11 +42,17 @@ open class photo : AppCompatActivity() {
             ?.addSnapshotListener label@{ querySnapshot, firebaseFirestoreExec ->
 
                 contentDTOS!!.clear()
-                for (snapshot in querySnapshot!!.documents) {
+                try{
+                    for (snapshot in querySnapshot!!.documents) {
 
-                    var item = snapshot.toObject(contentDTO::class.java)
-                    contentDTOS!!.add(item!!)
+                        var item = snapshot.toObject(contentDTO::class.java)
+                        contentDTOS!!.add(item!!)
+                    }
                 }
+               catch(e : Exception)
+               {
+                   finish()
+               }
 
                 println(contentDTOS!!.size)
                 updatingList(contentDTOS!!)
@@ -89,8 +95,9 @@ open class photo : AppCompatActivity() {
                 ).show()
                 return;
             }
-
+            imageView1.setScaleType(ImageView.ScaleType.FIT_XY)
             imageView1.setBackground(ShapeDrawable(OvalShape()))
+
             if (Build.VERSION.SDK_INT >= 21) {
                 imageView1.setClipToOutline(true);
             }
@@ -121,6 +128,8 @@ open class photo : AppCompatActivity() {
             return;
         }
 
+       imageView1.setScaleType(ImageView.ScaleType.FIT_XY)
+
         pictureUpdatebyGlide(myclass, imageView1, photoUri)
     }
 
@@ -135,6 +144,7 @@ open class photo : AppCompatActivity() {
         imgView: ImageView,
         photoUri: Uri?
     ) {
+
         if (photoUri != null) {
             Glide.with(myclass).load(photoUri)
                 .signature(ObjectKey(System.currentTimeMillis()))

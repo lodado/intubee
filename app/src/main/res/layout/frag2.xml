@@ -24,7 +24,7 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="#2196F3"
+                android:background="#3336F3"
                 />
 
             <FrameLayout
@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
+
 
                 <RelativeLayout
                     android:id="@+id/content1"
@@ -57,32 +58,51 @@
                             android:layout_height="wrap_content"
 
                             android:text="게시판 작성"
-                            android:layout_weight="1"
+                            android:layout_weight="15"
                             />
                         <TextView
                             android:id="@+id/uploadgesi2"
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                           android:layout_weight="3"
+                           android:layout_weight="8"
                             />
+
                         <Button
-                            android:id="@+id/uploadgesi3"
+                            android:id="@+id/uploadbefore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="내가 쓴글"
+                            android:text="이전"
                             />
+                        <Button
+                            android:id="@+id/uploadnext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="다음"
+                            />
+
+
 
                     </LinearLayout>
 
-
-                    <ListView
+                    <LinearLayout
+                        android:id="@+id/lay2"
                         android:layout_below="@id/linear__1"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        android:orientation="horizontal">
+                    <ListView
+
+
                         android:id="@+id/listview1"
                         android:layout_width="match_parent"
-                        android:layout_height="500dp"/>
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        />
 
+                    </LinearLayout>
 
                 </RelativeLayout>
 
@@ -128,9 +148,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="TAB CONTENT 2" />
-
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/content3"
                 android:layout_width="match_parent"
@@ -149,7 +167,6 @@
 
             </FrameLayout>
         </LinearLayout>
-
     </TabHost>
 
 

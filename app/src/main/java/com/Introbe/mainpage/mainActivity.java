@@ -27,23 +27,24 @@ public class mainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        frag_1 = new frag1();
-        frag_2 = new frag2();
-        frag_3 = new frag3();
-        frag_4 = new frag4();
 
-        setContentView(R.layout.itsmainpage);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             //dataBaseUser mine = myID.getInstance(user);
         } else {
-            Toast myToast = Toast.makeText(this.getApplicationContext(),"login failed! stop running application", Toast.LENGTH_SHORT);
-            myToast.show();
             finish();
         }
 
+
+        frag_1 = new frag1();
+        frag_2 = new frag2();
+        frag_3 = new frag3();
+        frag_4 = new frag4();
+        setContentView(R.layout.itsmainpage);
+
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, frag_1).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);

@@ -27,6 +27,7 @@ public class frag1 extends Fragment {
         v_fllipper.addView(imageView);      // 이미지 추가
         v_fllipper.setFlipInterval(4000);       // 자동 이미지 슬라이드 딜레이시간(1000 당 1초)
         v_fllipper.setAutoStart(true);          // 자동 시작 유무 설정
+
         // animation
         v_fllipper.setInAnimation(getActivity(),android.R.anim.slide_in_left);
         v_fllipper.setOutAnimation(getActivity(),android.R.anim.slide_out_right);
@@ -46,20 +47,25 @@ public class frag1 extends Fragment {
         tabHost1.setup() ;
 
         TabHost.TabSpec ts1 = tabHost1.newTabSpec("Tab Spec 1") ;
-        ts1.setContent(R.id.content1_1) ;
-        ts1.setIndicator("TAB 1") ;
+        ts1.setContent(R.id.브랜드추천) ;
+        ts1.setIndicator("추천") ;
         tabHost1.addTab(ts1)  ;
 
 
         TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
-        ts2.setContent(R.id.content1_2) ;
-        ts2.setIndicator("TAB 2") ;
+        ts2.setContent(R.id.신상품) ;
+        ts2.setIndicator("신상품") ;
         tabHost1.addTab(ts2) ;
 
         TabHost.TabSpec ts3 = tabHost1.newTabSpec("Tab Spec 3") ;
-        ts3.setContent(R.id.content1_3) ;
-        ts3.setIndicator("TAB 3") ;
+        ts3.setContent(R.id.베스트) ;
+        ts3.setIndicator("베스트") ;
         tabHost1.addTab(ts3) ;
+
+        TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
+        ts4.setContent(R.id.베스트1) ;
+        ts4.setIndicator("이벤트") ;
+        tabHost1.addTab(ts4) ;
 
         int images[] = {
                 R.drawable.b1,

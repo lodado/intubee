@@ -1,6 +1,8 @@
 package com.Introbe.IntuDatabase.DBUser;
 
 
+import android.net.Uri;
+
 import com.google.firebase.auth.FirebaseUser;
 
 /*
@@ -12,8 +14,8 @@ public abstract class fireDBUser implements user {
 
     //private dataBaseManager reader = new dataBaseManager();
     private FirebaseUser ourUser = null;
-    //private String name;
-    //private String email;
+    //private String name = null;
+    //private String email = null;
     //private Uri myUri;
 
     //constructor
@@ -30,6 +32,8 @@ public abstract class fireDBUser implements user {
     {
         return ourUser;
     }
+
+    //public String getName(){return name;}
 
     //return User's infomations
    /* public Map<String, Object> toMap() {

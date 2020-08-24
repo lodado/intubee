@@ -35,6 +35,10 @@ public class myID extends fireDBUser {
 
             return Mine;
     }
+
+
+
+
     
     //reset
     public static void clearInstance()

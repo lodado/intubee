@@ -10,13 +10,24 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.Introbe.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.signature.ObjectKey;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
 public class listViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<listViewItem> listViewItemList = new ArrayList<listViewItem>() ;
+
+    private int count =0;
 
     // ListViewAdapter의 생성자
     public listViewAdapter() {
@@ -45,19 +56,39 @@ public class listViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.listuserID) ;
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
+        final ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
+        final TextView titleTextView = (TextView) convertView.findViewById(R.id.listuserID) ;
+        final TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        listViewItem listViewItem = listViewItemList.get(position);
+        final listViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        //iconImageView.setImageDrawable(listViewItem.getIcon());
 
-        iconImageView.setImageURI(listViewItem.getUri());
-        titleTextView.setText(listViewItem.getTitle());
-        descTextView.setText(listViewItem.getDesc());
+        FirebaseStorage sto = FirebaseStorage.getInstance();
+        StorageReference storageRef = sto.getReference();
+
+      storageRef.child("IMAGE/"+listViewItem.getUri()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+
+                Glide.with(context)
+                        .load(uri)
+                        .into(iconImageView);
+                titleTextView.setText(listViewItem.getTitle());
+                descTextView.setText(listViewItem.getDesc());
+
+
+                iconImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
 
         return convertView;
     }
@@ -75,10 +106,9 @@ public class listViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(String title, String desc, Uri myUri) {
+    public void addItem(Context context,String title, String desc, String myUri) {
         listViewItem item = new listViewItem();
 
-        //item.setIcon(icon);
         item.setUri(myUri);
         item.setTitle(title);
         item.setDesc(desc);

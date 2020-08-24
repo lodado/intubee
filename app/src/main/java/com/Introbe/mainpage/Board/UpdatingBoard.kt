@@ -29,6 +29,7 @@ class UpdatingBoard : AppCompatActivity() {
     //var auth : FirebaseAuth? = null
     //var firestore : FirebaseFirestore? = null
 
+    //사진 업로드할때 쓰는 클래스
     var photoManager = photoUpload()
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +38,8 @@ class UpdatingBoard : AppCompatActivity() {
 
             //init
             storage = FirebaseStorage.getInstance()
+
+
 
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1).run{
         photouploadimg.setOnClickListener {
@@ -66,10 +69,10 @@ class UpdatingBoard : AppCompatActivity() {
 
 
     }
-
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
 
+            //업로드 성공시 사진 미리보기
             if(requestCode == PICK_IMAGE_FROM_ALBUM)
             {
                 photoUri = data?.data
@@ -83,6 +86,7 @@ class UpdatingBoard : AppCompatActivity() {
             }
         }
 
+        //업로드 성공시
         fun contentUpload() {
 
            photoManager.photoUpload(storage,

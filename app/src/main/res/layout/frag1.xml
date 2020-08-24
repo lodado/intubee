@@ -38,11 +38,10 @@
                     android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     >
 
                     <LinearLayout
-                        android:id="@+id/content1_1"
+                        android:id="@+id/브랜드추천"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
@@ -52,7 +51,9 @@
                             android:id="@+id/image_slide"
                             android:layout_width="match_parent"
                             android:layout_height="300dp"
+                            android:layout_gravity="center"
                             android:measureAllChildren="false"
+
                             >
 
                         </ViewFlipper>
@@ -63,12 +64,14 @@
                             android:background="#8BC34A"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:text="TAB CONTENT 1" />
+                            android:text="TAB CONTENT 1"
+                            android:scaleType="fitXY"
+                            />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/content1_2"
+                        android:id="@+id/신상품"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#2196F3"
@@ -77,7 +80,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/content1_3"
+                        android:id="@+id/베스트"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
@@ -90,6 +93,22 @@
                             android:padding="8dp"
                             android:text="TAB CONTENT 3" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/베스트1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="TAB CONTENT 3" />
+                    </LinearLayout>
+
                 </FrameLayout>
             </LinearLayout>
         </ScrollView>

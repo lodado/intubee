@@ -9,13 +9,15 @@ import com.Introbe.IntuDatabase.Util.photo;
 
 public class listViewItem {
 
-    private Uri myUri;
-    private Drawable iconDrawable ;
-    private String titleStr ;
-    private String descStr ;
+    private boolean isshown=false;
+    private String myUri;
+    private Drawable iconDrawable;
+    private String titleStr;
+    private String descStr;
 
-    public void setIcon(Drawable icon) { iconDrawable = icon ; }
-    public void setUri(Uri myUri){this.myUri = myUri; }
+    public void setShown(boolean ls){isshown=ls;}
+    //public void setIcon(Drawable icon) { iconDrawable = icon ; }
+    public void setUri(String myUri){this.myUri = myUri; }
     public void setTitle(String title) {
         titleStr = title ;
     }
@@ -23,15 +25,15 @@ public class listViewItem {
         descStr = desc ;
     }
 
-    public Drawable getIcon() {
-        return this.iconDrawable ;
-    }
-    public Uri getUri(){return this.myUri;}
+    public boolean getshown(){return isshown;}
+    //public Drawable getIcon() {return this.iconDrawable ;}
+    public String getUri(){return this.myUri;}
     public String getTitle() {
         return this.titleStr ;
     }
     public String getDesc() {
         return this.descStr ;
     }
+
 
 }

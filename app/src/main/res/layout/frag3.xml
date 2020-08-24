@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     android:background="#F15C5C">
 
+    <ImageView
+        android:id="@+id/tttt"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ImageView>
+
     <TextView
         android:id="@+id/frag3"
         android:layout_width="wrap_content"
