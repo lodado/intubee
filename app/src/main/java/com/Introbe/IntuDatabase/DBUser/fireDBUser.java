@@ -14,7 +14,7 @@ public abstract class fireDBUser implements user {
 
     //private dataBaseManager reader = new dataBaseManager();
     private FirebaseUser ourUser = null;
-    //private String name = null;
+    private String name = null;
     //private String email = null;
     //private Uri myUri;
 
@@ -33,7 +33,7 @@ public abstract class fireDBUser implements user {
         return ourUser;
     }
 
-    //public String getName(){return name;}
+    public String getName(){return name;}
 
     //return User's infomations
    /* public Map<String, Object> toMap() {

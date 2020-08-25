@@ -26,6 +26,7 @@ import com.Introbe.R;
 import com.Introbe.mainpage.Board.UpdatingBoard;
 import com.Introbe.mainpage.Board.contentDTO;
 import com.Introbe.mainpage.Board.listViewAdapter;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -77,7 +78,6 @@ public class frag2 extends Fragment {
         //시간상 문제로 인하여 어뎁터뷰를 재활용 하지 않고 그대로 전부 삭제한후 재 출력 -> (오버헤드 무시)
         //+ 리사이클러 뷰 사용가능
 
-
         /*
         =============================================================================================
          */
@@ -90,11 +90,12 @@ public class frag2 extends Fragment {
           /*
         =============================================================================================
          */
-
         TabHost.TabSpec ts3 = tabHost1.newTabSpec("Tab Spec 3");
         ts3.setContent(R.id.content3);
         ts3.setIndicator("내가 쓴글");
         tabHost1.addTab(ts3);
+
+
 
         /*
         if(listview !=null)
@@ -122,10 +123,10 @@ public class frag2 extends Fragment {
     }
 
 
-
     //리사이클러 뷰로 대체 가능, 최근 50개만 보여줌
     private void refreshView()
     {
+
         adapter = new listViewAdapter();
         listview=null;
 
@@ -133,6 +134,7 @@ public class frag2 extends Fragment {
         listview.setAdapter(adapter);
 
             for (int i = cont.size()-1, j=0; i >= 0 && j<end_; i--, j++) {
+
                 String thisId = cont.get(i).getUserId();
                 String thisExp = cont.get(i).getExplain();
 

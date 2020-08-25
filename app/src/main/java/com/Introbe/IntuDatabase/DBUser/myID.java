@@ -36,6 +36,16 @@ public class myID extends fireDBUser {
             return Mine;
     }
 
+    public static myID getInstance() {
+
+        if(Mine==null)
+        {
+            return null;
+        }
+
+        return Mine;
+    }
+
 
 
 
