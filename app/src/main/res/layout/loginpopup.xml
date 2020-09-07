@@ -12,19 +12,25 @@
         android:orientation="vertical"
         >
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_weight="0.3"
+
+            android:background="#00ff0000"
+
+            android:fontFamily="sans-serif-black"
 
             android:gravity="center"
-
-            android:background="#FF9800"
-
-            android:text="Login"/>
+            android:text="Login"
+            android:textSize="50sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
 
             android:text="">
 
@@ -33,16 +39,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.1"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="ID                         : "
-                />
+                android:text="              ID            " />
 
             <EditText
 
@@ -59,8 +64,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal"
+            android:layout_weight="0.1"
             >
 
             <TextView
@@ -68,8 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="E-mail                 : "
-                />
+                android:text="          E-mail         " />
 
             <EditText
 
@@ -88,7 +92,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_weight="0.1"
             android:orientation="horizontal"
             >
 
@@ -96,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="PASSWORD       : "/>
+                android:text=" PASSWORD        " />
 
             <EditText
                 android:id="@+id/editpass"
@@ -112,7 +116,10 @@
                 />
 
         </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,8 +130,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="RE-PASSWORD : "/>
+                android:layout_gravity=""
+                android:text=" RE-PASSWORD  " />
 
             <EditText
 
@@ -143,17 +150,20 @@
         </LinearLayout>
 
         <Button
-
+            android:layout_weight="0.1"
             android:id="@+id/editenterbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:background="@drawable/enter2"
+            android:fontFamily="sans-serif-black"
 
+            android:gravity="center"
             android:text="enter"
 
-            ></Button>
+            android:textColor="#ffffff"></Button>
 
+    </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

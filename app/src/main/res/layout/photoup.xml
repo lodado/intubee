@@ -38,16 +38,28 @@
             android:id="@+id/photoupcancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#54a6ff"
 
             android:text="cancel"
+            android:textColor="#ffffff"
             android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="0.1"
             />
 
         <Button
             android:id="@+id/photoupaccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#54a6ff"
+
             android:text="accept"
+            android:textColor="#ffffff"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -62,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="이미지 설명"
+                android:gravity="center"
             />
     </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>

@@ -8,40 +8,35 @@
 
     <LinearLayout
 
-        android:layout_width = "match_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <TextView
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
 
-            android:gravity="center"
-            android:text="INTROBE"
-
-            android:textColor="#0000FF"
             android:layout_weight="2"
-            />
 
-
+            android:foreground="@drawable/rogo"
+            android:gravity="center"
+            android:textColor="#0000FF" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="ID                   : "
+                android:fontFamily="sans-serif-black"
 
-                />
+                android:text="            ID         " />
 
             <EditText
                 android:id="@+id/idbar"
@@ -49,27 +44,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:singleLine = "true"
-                android:lines = "1"
+
+                android:fontFamily="sans-serif-medium"
+
                 android:gravity="center"
                 android:hint="enter ID !"
-                />
+                android:lines="1"
+                android:singleLine="true" />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
 
-                android:text="PASSWORD : "/>
+                android:fontFamily="sans-serif-black"
+                android:text="  PASSWORD " />
 
 
             <EditText
@@ -77,25 +75,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:singleLine = "true"
-                android:lines = "1"
-                android:inputType="textPassword"
-                android:gravity="center"
                 android:layout_weight="2"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
                 android:hint="enter password!"
-                />
+                android:inputType="textPassword"
+                android:lines="1"
+                android:singleLine="true" />
 
         </LinearLayout>
-
-
 
         <Button
             android:id="@+id/btnlogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:text="Login"
             android:layout_weight="0.1"
+
+            android:background="@drawable/login1"
+            android:fontFamily="sans-serif-black"
+            android:text="Login"
+            android:textColor="#ffffff"
+
             />
 
         <LinearLayout
@@ -103,36 +103,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
             android:layout_weight="0.1"
-            >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/googleloginbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="google login"
                 android:layout_weight="1"
+                android:autoText="false"
 
-                />
+                android:background="#00ff0000"
+                android:fontFamily="sans-serif-black"
+                android:foreground="@drawable/login_page_google_icone"
+                android:lineSpacingExtra="1dp"
+                android:text="            google"
+                android:textIsSelectable="true"
+                android:textSize="14sp" />
+
             <Button
                 android:id="@+id/facebookloginbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="facebook login"
                 android:layout_weight="1"
-                />
+                android:autoText="false"
+
+                android:background="#00ff0000"
+                android:fontFamily="sans-serif-black"
+                android:foreground="@drawable/login_page_facebook_icone"
+                android:lineSpacingExtra="1dp"
+                android:text="            facebook"
+                android:textIsSelectable="true"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/naverloginbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="naver login"
                 android:layout_weight="1"
-                />
+
+                android:background="#00ff0000"
+                android:fontFamily="sans-serif-black"
+                android:foreground="@drawable/login_page_naver_icone"
+                android:lineSpacingExtra="1dp"
+                android:text="            naver" />
 
         </LinearLayout>
 
@@ -141,28 +155,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnmakeID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="회원가입"
-
                 android:layout_weight="3"
+                android:background="@drawable/login_page_find_id_password_bar"
 
+                android:fontFamily="sans-serif-black"
+                android:text="회원가입"
+                android:textColor="#ffffff" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
                 />
+
+
             <Button
                 android:id="@+id/forgetpasswd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/login_page_sign_up_bar"
 
-                android:text="forget password?"
-                android:layout_weight="1"
-                />
+                android:fontFamily="sans-serif-black"
+                android:text="ID/Password 찾기"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 

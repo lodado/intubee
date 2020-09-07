@@ -23,7 +23,7 @@ public class frag1 extends Fragment {
 
 
     private ViewFlipper v_fllipper = null;
-
+    private String loadUri = "http://183.105.64.88:8888";
     private WebView mWebView = null;
 
 
@@ -94,7 +94,7 @@ public class frag1 extends Fragment {
 
         mWebView.getSettings().setJavaScriptEnabled(true);//자바스크립트 허용
 
-        mWebView.loadUrl("http://chunghoney.gq");
+        mWebView.loadUrl(loadUri);
         mWebView.setWebChromeClient(new WebChromeClient());
 
         mWebView.setWebViewClient(new WebViewClient() {//페이지 이동
@@ -106,11 +106,30 @@ public class frag1 extends Fragment {
             }
         });
 
+       mWebView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                //This is the filter
+                if (event.getAction()!=KeyEvent.ACTION_DOWN)
+                    return true;
+
+
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (mWebView.canGoBack()) {
+                        mWebView.goBack();
+
+                    } else {
+                        getActivity().onBackPressed();
+                    }
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
     }
-
-
-
 
 }
 

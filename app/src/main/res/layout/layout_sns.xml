@@ -24,8 +24,9 @@
             android:layout_marginBottom="5dp"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/_2"
             android:scaleType="fitXY"
+            android:foreground="#00ff0000"
             ></ImageView>
 
         <TextView
@@ -35,7 +36,7 @@
             android:layout_height="35dp"
             android:gravity="center_vertical"
             android:layout_gravity="center"
-            android:text="userid"
+            android:text="user id"
             />
     </LinearLayout>
 
@@ -56,7 +57,7 @@
                 android:id="@+id/snsheart"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/heart"
                 ></ImageView>
 
 
@@ -65,8 +66,7 @@
                 android:id="@+id/snschat"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@mipmap/ic_launcher"
-                ></ImageView>
+                android:src="@drawable/community" />
 
         </LinearLayout>
         <LinearLayout
@@ -78,8 +78,7 @@
                 android:layout_marginLeft="1.5dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:text="like"
-                ></TextView>
+                android:text="like" />
 
             <TextView
                 android:id="@+id/snslike"
@@ -93,7 +92,7 @@
             android:layout_marginLeft="1.5dp"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="explain"
+            android:text=""
             ></TextView>
 
         <TextView
@@ -102,6 +101,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text=""
+            android:hint="글을 작성하세요"
             android:textColor="#666666"
             android:textSize="16dp" />
 

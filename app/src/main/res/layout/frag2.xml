@@ -24,7 +24,7 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="#3336F3"
+                android:background="#eef0f3"
                 />
 
             <FrameLayout
@@ -36,6 +36,7 @@
 
                 <RelativeLayout
                     android:id="@+id/content1"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
@@ -54,15 +55,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
+                            android:background="#00ff0000"
+
                             android:text="게시판 작성"
+                            android:textColor="#535353"
+                            android:textSize="15sp"
                             android:layout_weight="15"
+                            android:fontFamily="sans-serif-black"
                             />
                         <TextView
-                            android:id="@+id/uploadgesi2"
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                           android:layout_weight="8"
+                            android:layout_weight="8"
                             />
 
                         <Button
@@ -70,16 +75,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+
+                            android:background="#00ff0000"
+
                             android:text="이전"
+                            android:textColor="#535353"
+                            android:fontFamily="sans-serif-black"
                             />
+
+                        <TextView
+                            android:id="@+id/uploadgesi2"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            />
+
                         <Button
                             android:id="@+id/uploadnext1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+
+                            android:background="#00ff0000"
+
                             android:text="다음"
+                            android:textColor="#535353"
+                            android:fontFamily="sans-serif-black"
                             />
-                        
+
                     </LinearLayout>
 
                     <LinearLayout
