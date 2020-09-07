@@ -1,8 +1,6 @@
 package com.Introbe.IntuDatabase.DBUser;
 
 
-import android.net.Uri;
-
 import com.google.firebase.auth.FirebaseUser;
 
 /*
@@ -24,6 +22,7 @@ public abstract class fireDBUser implements user {
         //null double check 권장
         if(user != null) {
             ourUser = user;
+            name = user.getDisplayName();
             //User's data
         }
     }
@@ -35,6 +34,7 @@ public abstract class fireDBUser implements user {
 
     public String getName(){return name;}
 
+    public void setName(String newName){ name = newName; }
     //return User's infomations
    /* public Map<String, Object> toMap() {
         return reader.toMap(ourUser);

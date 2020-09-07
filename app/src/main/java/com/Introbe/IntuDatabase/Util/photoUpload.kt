@@ -26,7 +26,7 @@ class photoUpload : photo() {
         val imageFileName = img+"_"+new_timestamp+"_.png"
         var storageRef = storage?.reference?.child(img)?.child(imageFileName)
 
-        storageRef?.putFile(photoUri!!)?.addOnSuccessListener { uri ->
+        storageRef?.putFile(photoUri!!)?.addOnSuccessListener { _ ->
             tst.show()
 
                        auth = FirebaseAuth.getInstance()

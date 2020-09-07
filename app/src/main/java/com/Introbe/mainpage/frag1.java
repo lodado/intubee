@@ -11,12 +11,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.Introbe.IntuDatabase.DBUser.myID;
 import com.Introbe.R;
 
 public class frag1 extends Fragment {
@@ -25,8 +27,6 @@ public class frag1 extends Fragment {
     private ViewFlipper v_fllipper = null;
     private String loadUri = "http://183.105.64.88:8888";
     private WebView mWebView = null;
-
-
 
     public void fllipperImages(int image) {
         ImageView imageView = new ImageView(getActivity());
@@ -50,6 +50,13 @@ public class frag1 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.yourid);
+        String myName = myID.getInstance().getName();
+
+        myAwesomeTextView.setText(myName+" 고객님을 위한 추천 상품");
+
+
 
         TabHost tabHost1 = (TabHost) getView().findViewById(R.id.tabHost1) ;
         tabHost1.setup() ;
@@ -87,8 +94,6 @@ public class frag1 extends Fragment {
         ts4.setContent(R.id.베스트1) ;
         ts4.setIndicator("이벤트") ;
         tabHost1.addTab(ts4) ;
-
-
 
         mWebView = (WebView) getView().findViewById(R.id.webView1);
 

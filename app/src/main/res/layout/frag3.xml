@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F15C5C">
+    android:background="#ffffff">
 
-    <ImageView
-        android:id="@+id/tttt"
+
+    <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        ></ImageView>
-
-    <TextView
-        android:id="@+id/frag3"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="three"
-        android:textColor="#000"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:paddingTop="25dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/searching"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:hint="검색어를 입력 하세요"
+            android:textColor="#000"
+             android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ic_launcher_foreground"
+
+            android:layout_toRightOf="@id/searching"
+            android:paddingTop="25dp"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

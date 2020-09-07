@@ -66,11 +66,9 @@ open class photo : AppCompatActivity() {
 
 
 
-    protected fun getReference(str :String): StorageReference {
+    protected fun getReference(): StorageReference {
 
         var storage: FirebaseStorage = FirebaseStorage.getInstance();
-        var storageRef: StorageReference = storage.reference
-
         return Firebase.storage.reference
     }
 

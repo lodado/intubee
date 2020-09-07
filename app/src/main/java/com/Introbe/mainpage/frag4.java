@@ -1,15 +1,27 @@
 package com.Introbe.mainpage;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.Introbe.IntuDatabase.DBUser.myID;
 import com.Introbe.R;
+
+import static androidx.core.content.ContextCompat.getSystemService;
+
 
 public class frag4 extends Fragment {
 
@@ -22,6 +34,9 @@ public class frag4 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
     }
+
 }
 
