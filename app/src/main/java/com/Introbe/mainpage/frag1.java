@@ -1,9 +1,14 @@
 package com.Introbe.mainpage;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.ViewFlipper;
@@ -17,7 +22,10 @@ import com.Introbe.R;
 public class frag1 extends Fragment {
 
 
-    ViewFlipper v_fllipper;
+    private ViewFlipper v_fllipper = null;
+
+    private WebView mWebView = null;
+
 
 
     public void fllipperImages(int image) {
@@ -51,6 +59,19 @@ public class frag1 extends Fragment {
         ts1.setIndicator("추천") ;
         tabHost1.addTab(ts1)  ;
 
+        int images[] = {
+                R.drawable.b1,
+                R.drawable.b2,
+                R.drawable.wallpaper_alena_velichko_08_1920x1200
+        };
+
+        v_fllipper = getView().findViewById(R.id.image_slide);
+
+        for(int image : images) {
+            fllipperImages(image);
+        }
+
+
 
         TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
         ts2.setContent(R.id.신상품) ;
@@ -67,18 +88,29 @@ public class frag1 extends Fragment {
         ts4.setIndicator("이벤트") ;
         tabHost1.addTab(ts4) ;
 
-        int images[] = {
-                R.drawable.b1,
-                R.drawable.b2,
-                R.drawable.wallpaper_alena_velichko_08_1920x1200
-        };
 
-        v_fllipper = getView().findViewById(R.id.image_slide);
 
-        for(int image : images) {
-            fllipperImages(image);
-        }
+        mWebView = (WebView) getView().findViewById(R.id.webView1);
+
+        mWebView.getSettings().setJavaScriptEnabled(true);//자바스크립트 허용
+
+        mWebView.loadUrl("http://chunghoney.gq");
+        mWebView.setWebChromeClient(new WebChromeClient());
+
+        mWebView.setWebViewClient(new WebViewClient() {//페이지 이동
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.d("check URL",url);
+                view.loadUrl(url);
+                return true;
+            }
+        });
+
 
     }
+
+
+
+
 }
 

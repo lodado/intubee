@@ -51,7 +51,9 @@ public class frag2 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-         /*
+
+        refreshView(); // 뷰 설정
+        /*
         =============================================================================================
          */
 
@@ -74,7 +76,8 @@ public class frag2 extends Fragment {
             }
         });
 
-        refreshView(); //뷰 설정
+
+
         //시간상 문제로 인하여 어뎁터뷰를 재활용 하지 않고 그대로 전부 삭제한후 재 출력 -> (오버헤드 무시)
         //+ 리사이클러 뷰 사용가능
 
@@ -133,7 +136,7 @@ public class frag2 extends Fragment {
         listview = (ListView) getActivity().findViewById(R.id.listview1);
         listview.setAdapter(adapter);
 
-            for (int i = cont.size()-1, j=0; i >= 0 && j<end_; i--, j++) {
+            for (int i = cont.size()-1; i >= 0 && i>= cont.size()-4; i--) {
 
                 String thisId = cont.get(i).getUserId();
                 String thisExp = cont.get(i).getExplain();
@@ -143,7 +146,7 @@ public class frag2 extends Fragment {
                 adapter.addItem(getContext(), thisId, thisExp, cont.get(i).getImageUrl());
 
                 if(0 == cont.size()) {
-                    cont=photoDownload.getContentDTO();
+                        cont = photoDownload.getContentDTO();
                 }
             }
         }
