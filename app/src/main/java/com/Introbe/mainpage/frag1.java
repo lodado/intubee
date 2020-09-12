@@ -67,9 +67,9 @@ public class frag1 extends Fragment {
         tabHost1.addTab(ts1)  ;
 
         int images[] = {
-                R.drawable.b1,
-                R.drawable.b2,
-                R.drawable.wallpaper_alena_velichko_08_1920x1200
+                R.drawable.first_orange_juice,
+                R.drawable.second_salad_set,
+                R.drawable.third_olive_oil
         };
 
         v_fllipper = getView().findViewById(R.id.image_slide);
@@ -80,10 +80,10 @@ public class frag1 extends Fragment {
 
 
 
-        TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
-        ts2.setContent(R.id.신상품) ;
-        ts2.setIndicator("신상품") ;
-        tabHost1.addTab(ts2) ;
+        //TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
+       // ts2.setContent(R.id.신상품) ;
+       // ts2.setIndicator("신상품") ;
+       // tabHost1.addTab(ts2) ;
 
         TabHost.TabSpec ts3 = tabHost1.newTabSpec("Tab Spec 3") ;
         ts3.setContent(R.id.베스트) ;

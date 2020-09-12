@@ -81,11 +81,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:fontFamily="sans-serif-condensed-medium"
+                                android:fontFamily="sans-serif-medium"
                                 android:gravity="center"
                                 android:padding="8dp"
                                 android:scaleType="fitXY"
-                                android:text="고객3을 위한 추천" />
+                                android:text="유기농 레몬" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -95,18 +95,18 @@
                                 android:gravity="center"
                                 android:padding="8dp"
                                 android:scaleType="fitXY"
-                                android:text="고객33 위한 추천" />
+                                android:text="유기농 아몬드" />
 
                             <TextView
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:fontFamily="sans-serif-condensed-medium"
                                 android:gravity="center"
-                                android:layout_weight="1"
                                 android:padding="8dp"
                                 android:scaleType="fitXY"
-                                android:text="고객33 위한 추천" />
+                                android:text="유기농 곡물" />
                         </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -115,30 +115,33 @@
                         android:orientation="horizontal"
                         android:paddingTop="5dp"
                         >
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
-                            android:background="@drawable/ic_launcher_foreground"
                             android:layout_weight="1"
+                            android:background="@drawable/ic_launcher_foreground"
+                            android:foreground="@drawable/second_small"
                             android:padding="8dp"
-                            android:scaleType="fitXY"
-                            />
+                            android:scaleType="fitXY" />
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
-                            android:background="@drawable/ic_launcher_foreground"
                             android:layout_weight="1"
+                            android:background="@drawable/ic_launcher_foreground"
+                            android:foreground="@drawable/third_small"
                             android:padding="8dp"
-                            android:scaleType="fitXY"
-                            />
+                            android:scaleType="fitXY" />
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
-                            android:background="@drawable/ic_launcher_foreground"
                             android:layout_weight="1"
+                            android:background="@drawable/ic_launcher_foreground"
+                            android:foreground="@drawable/fourth_small"
                             android:padding="8dp"
-                            android:scaleType="fitXY"
-                            />
+                            android:scaleType="fitXY" />
                     </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -155,18 +158,18 @@
                                 android:gravity="center"
                                 android:padding="8dp"
                                 android:scaleType="fitXY"
-                                android:text="고객3을 위한 추천" />
+                                android:text="비건 샐러드" />
 
                             <TextView
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:fontFamily="sans-serif-condensed-medium"
                                 android:gravity="center"
-                                android:layout_weight="1"
                                 android:padding="8dp"
                                 android:scaleType="fitXY"
-                                android:text="고객33 위한 추천" />
+                                android:text="비건 도시락" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -178,36 +181,26 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="100dp"
-                                android:background="@drawable/ic_launcher_foreground"
                                 android:layout_weight="10"
+                                android:background="@drawable/ic_launcher_foreground"
+                                android:foreground="@drawable/fifth_small"
                                 android:padding="8dp"
-                                android:scaleType="fitXY"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                />
+                                android:scaleType="fitXY" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="100dp"
-                                android:background="@drawable/ic_launcher_foreground"
                                 android:layout_weight="10"
+                                android:background="@drawable/ic_launcher_foreground"
+                                android:foreground="@drawable/first_small"
                                 android:padding="8dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
                         </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/신상품"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#2196F3"
-                        android:fontFamily="sans-serif-black"
-                        android:orientation="vertical">
 
                     </LinearLayout>
 
@@ -232,12 +225,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#ffffff"
+                            android:drawableLeft="@drawable/one"
+                            android:drawablePadding="18dip"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="18dip"
+                            android:paddingTop="15dp"
+                            android:text="  냥이"
+                            android:textSize="15sp" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
                             android:textSize="15sp"
                             android:paddingLeft="18dip"
                             android:gravity="left|center_vertical"
-                            android:text="  구독자 관리"
+                            android:text="  사랑이"
                             android:paddingTop="15dp"
-                            android:drawableLeft="@drawable/sigoru_jabjong_dog"
+                            android:drawableLeft="@drawable/two"
                             android:drawablePadding="18dip"
                             />
                         <Button
@@ -247,11 +251,23 @@
                             android:textSize="15sp"
                             android:paddingLeft="18dip"
                             android:gravity="left|center_vertical"
-                            android:text="  구독자 관리"
+                            android:text="  치즈"
                             android:paddingTop="15dp"
-                            android:drawableLeft="@drawable/sigoru_jabjong_dog"
+                            android:drawableLeft="@drawable/three"
                             android:drawablePadding="18dip"
                             />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:drawableLeft="@drawable/four"
+                            android:drawablePadding="18dip"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="18dip"
+                            android:paddingTop="15dp"
+                            android:text="  흰둥이"
+                            android:textSize="15sp" />
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -259,35 +275,46 @@
                             android:textSize="15sp"
                             android:paddingLeft="18dip"
                             android:gravity="left|center_vertical"
-                            android:text="  구독자 관리"
+                            android:text="  평화"
                             android:paddingTop="15dp"
-                            android:drawableLeft="@drawable/sigoru_jabjong_dog"
+                            android:drawableLeft="@drawable/five"
                             android:drawablePadding="18dip"
                             />
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#ffffff"
-                            android:textSize="15sp"
-                            android:paddingLeft="18dip"
-                            android:gravity="left|center_vertical"
-                            android:text="  구독자 관리"
-                            android:paddingTop="15dp"
-                            android:drawableLeft="@drawable/sigoru_jabjong_dog"
+                            android:drawableLeft="@drawable/cat"
                             android:drawablePadding="18dip"
-                            />
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="18dip"
+                            android:paddingTop="15dp"
+                            android:text="  삼색이"
+                            android:textSize="15sp" />
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#ffffff"
-                            android:textSize="15sp"
-                            android:paddingLeft="18dip"
-                            android:gravity="left|center_vertical"
-                            android:text="  구독자 관리"
-                            android:paddingTop="15dp"
-                            android:drawableLeft="@drawable/sigoru_jabjong_dog"
+                            android:drawableLeft="@drawable/dog"
                             android:drawablePadding="18dip"
-                            />
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="18dip"
+                            android:paddingTop="15dp"
+                            android:text="  천사"
+                            android:textSize="15sp" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:drawableLeft="@drawable/panda"
+                            android:drawablePadding="18dip"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="18dip"
+                            android:paddingTop="15dp"
+                            android:text="  점박이"
+                            android:textSize="15sp" />
+
+
 
                     </LinearLayout>
 

@@ -16,25 +16,18 @@
         android:paddingTop="25dp"
         >
 
-        <EditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/searching"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:singleLine="true"
             android:hint="검색어를 입력 하세요"
+            app:iconifiedByDefault="true"
             android:textColor="#000"
              android:gravity="center"
             android:layout_centerInParent="true"
             android:textSize="20sp"
-            />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:foreground="@drawable/ic_launcher_foreground"
-
-            android:layout_toRightOf="@id/searching"
-            android:paddingTop="25dp"
             />
 
     </RelativeLayout>
