@@ -63,9 +63,6 @@ class userPage : photo() {
 
                     userpageID1.text = get("name").toString()  //setID
                     userpageEmail.text = get("email").toString() //SetEmail
-
-                    val imageView : ImageView
-
                     val photoUri : Uri? = get("myUri") as Uri?;
 
                     if(photoUri != null) {
