@@ -27,11 +27,7 @@ import com.Introbe.R;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 
-public class frag4 extends Fragment {
-
-    private String loadUri = "http://183.105.64.88:8888/navi";
-    private WebView mWebView = null;
-
+public class frag4 extends fragParent {
 
     @Nullable
     @Override

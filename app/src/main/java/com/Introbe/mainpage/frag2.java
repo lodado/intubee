@@ -31,10 +31,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class frag2 extends Fragment {
+public class frag2 extends fragParent {
 
-    ListView listview;
-    listViewAdapter adapter;
+    private ListView listview;
+    private listViewAdapter adapter;
 
     //스크롤 밑에 닿으면 증가
     int start_ = 0, end_ = 50;

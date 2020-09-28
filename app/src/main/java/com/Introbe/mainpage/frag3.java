@@ -17,7 +17,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class frag3 extends Fragment {
+public class frag3 extends fragParent {
 
     @Nullable
     @Override

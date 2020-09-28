@@ -21,12 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.Introbe.IntuDatabase.DBUser.myID;
 import com.Introbe.R;
 
-public class frag1 extends Fragment {
-
-
-    private ViewFlipper v_fllipper = null;
-    private String loadUri = "http://183.105.64.88:8888";
-    private WebView mWebView = null;
+public class frag1 extends fragParent {
 
     public void fllipperImages(int image) {
         ImageView imageView = new ImageView(getActivity());
