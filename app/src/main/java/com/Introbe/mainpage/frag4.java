@@ -41,6 +41,7 @@ public class frag4 extends fragParent {
 
         mWebView = (WebView) getView().findViewById(R.id.mapview1);
 
+
         mWebView.getSettings().setJavaScriptEnabled(true);//자바스크립트 허용
 
         mWebView.loadUrl(loadUri);
